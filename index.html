@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как дети асфальта элитный сыр варили — репортаж «СГ» с козьей сыроварни в Буево</title>
+<meta name="description" content="Журналисты «СГ» на один день стали сыроварами: козья ферма Ирины Лужковой в деревне Буево, 20 км от Витебска, 11 видов сыра и рецепт «Рассольного молодого».">
+<meta name="theme-color" content="#16110C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Наш буевский ответ Альпам">
+<meta property="og:description" content="Как дети асфальта пытались перехитрить породистых коз и сварить элитный сыр — журналисты «СГ» стали… сыроварами.">
+<meta property="og:image" content="assets/img/opt/kyz-34-sm.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300..900&family=Golos+Text:wght@400..700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="assets/img/logo.png">
+<script>document.documentElement.classList.remove("no-js");document.documentElement.classList.add("js");</script>
+</head>
+<body class="is-loading" data-theme="milk">
+
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<!-- Прелоадер: четыре квадранта логотипа собираются в знак -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader__mark">
+    <span class="quadset quadset--loader" aria-hidden="true">
+      <img src="assets/img/logo.png" alt="" class="quad quad--tl">
+      <img src="assets/img/logo.png" alt="" class="quad quad--tr">
+      <img src="assets/img/logo.png" alt="" class="quad quad--bl">
+      <img src="assets/img/logo.png" alt="" class="quad quad--br">
+    </span>
+  </div>
+  <p class="loader__value mono"><span data-loader-pct>0</span> %</p>
+  <p class="loader__stages mono">молоко → нагрев → сгусток → головка</p>
+  <p class="loader__word">Скоро будет сыр</p>
+</div>
+
+<!-- Курсор-сырная крошка -->
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__ring" data-cursor-ring></div>
+  <div class="cursor__dot" data-cursor-dot></div>
+  <div class="cursor__label mono" data-cursor-label></div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Шапка -->
+<header class="topbar" id="topbar" data-topbar>
+  <a class="brand" href="#top" data-magnetic>
+    <span class="quadset quadset--brand" aria-hidden="true" data-quadset>
+      <img src="assets/img/logo.png" alt="" class="quad quad--tl">
+      <img src="assets/img/logo.png" alt="" class="quad quad--tr">
+      <img src="assets/img/logo.png" alt="" class="quad quad--bl">
+      <img src="assets/img/logo.png" alt="" class="quad quad--br">
+    </span>
+    <span class="brand__text">
+      <b>Козья сыроварня</b>
+      <i class="mono">Буево · 20 км от Витебска</i>
+    </span>
+  </a>
+
+  <nav class="topnav" aria-label="Разделы репортажа">
+    <a class="topnav__link" href="#shengen" data-nav-link><b class="mono">01</b>Шенген не нужен</a>
+    <a class="topnav__link" href="#vily" data-nav-link><b class="mono">02</b>От вил — к марле</a>
+    <a class="topnav__link" href="#shpargalka" data-nav-link><b class="mono">03</b>Сырная шпаргалка</a>
+    <a class="topnav__link" href="#degustacia" data-nav-link><b class="mono">04</b>Дегустация</a>
+    <a class="topnav__link" href="#recept" data-nav-link><b class="mono">05</b>Рецепт от шефа</a>
+  </nav>
+
+  <div class="topbar__right">
+    <a class="btn btn--ghost topbar__gal" href="#galereya">Галерея · 50 фото</a>
+    <button class="wheelbtn" type="button" id="menuBtn" data-menu-open aria-expanded="false" aria-controls="menu">
+      <svg class="wheelbtn__ring" viewBox="0 0 44 44" aria-hidden="true">
+        <circle class="wheelbtn__track" cx="22" cy="22" r="19" pathLength="100"></circle>
+        <circle class="wheelbtn__prog" cx="22" cy="22" r="19" pathLength="100" data-ring></circle>
+      </svg>
+      <span class="wheelbtn__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="sr-only">Открыть меню разделов</span>
+    </button>
+  </div>
+</header>
+
+<!-- Круговое меню «сырная головка» -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Разделы репортажа" data-menu>
+  <div class="menu__grid">
+    <div class="menu__wheelwrap">
+      <svg class="wheel" viewBox="0 0 220 220" aria-hidden="true" focusable="false">
+        <g data-wheel-wedges>
+          <a class="wedge" href="#shengen" data-wheel-item="shengen" tabindex="-1"><path d="M112.72 6.04A104 104 0 0 1 208.03 75.28L159.02 92.64A52 52 0 0 0 111.36 58.02Z"></path><text x="158.2" y="43.66" transform="rotate(36 158.2 43.66)">01</text></a>
+          <a class="wedge" href="#vily" data-wheel-item="vily" tabindex="-1"><path d="M209.72 80.46A104 104 0 0 1 173.31 192.51L141.66 151.25A52 52 0 0 0 159.86 95.23Z"></path><text x="187.99" y="135.34" transform="rotate(108 187.99 135.34)">02</text></a>
+          <a class="wedge" href="#shpargalka" data-wheel-item="shpargalka" tabindex="-1"><path d="M168.91 195.71A104 104 0 0 1 51.09 195.71L80.55 152.85A52 52 0 0 0 139.45 152.85Z"></path><text x="110" y="192" transform="rotate(180 110 192)">03</text></a>
+          <a class="wedge" href="#degustacia" data-wheel-item="degustacia" tabindex="-1"><path d="M46.69 192.51A104 104 0 0 1 10.28 80.46L60.14 95.23A52 52 0 0 0 78.34 151.25Z"></path><text x="32.01" y="135.34" transform="rotate(252 32.01 135.34)">04</text></a>
+          <a class="wedge" href="#recept" data-wheel-item="recept" tabindex="-1"><path d="M11.97 75.28A104 104 0 0 1 107.28 6.04L108.64 58.02A52 52 0 0 0 60.98 92.64Z"></path><text x="61.8" y="43.66" transform="rotate(324 61.8 43.66)">05</text></a>
+        </g>
+        <a class="wheel__hub" href="#galereya" data-wheel-item="galereya" tabindex="-1">
+          <circle cx="110" cy="110" r="46"></circle>
+          <text x="110" y="106">галерея</text>
+          <text x="110" y="122">50 фото</text>
+        </a>
+      </svg>
+      <img class="menu__logo" src="assets/img/logo.png" alt="" width="1440" height="1440" loading="lazy" decoding="async">
+      <p class="menu__hint mono">Наведите на сектор — увидите кадр</p>
+    </div>
+
+    <nav class="menu__nav" aria-label="Разделы репортажа">
+      <p class="menu__eyebrow mono">Содержание репортажа</p>
+      <ol class="menu__list">
+        <li><a href="#shengen" data-menu-link data-photo="12"><span class="menu__num mono">01</span><span class="menu__title">Шенген не нужен</span><span class="menu__hint2">Козы, «Милавица» и переезд в деревню</span></a></li>
+        <li><a href="#vily" data-menu-link data-photo="41"><span class="menu__num mono">02</span><span class="menu__title">От вил — к марле</span><span class="menu__hint2">Вилы, стерилизация и сыворотка</span></a></li>
+        <li><a href="#shpargalka" data-menu-link data-photo="18"><span class="menu__num mono">03</span><span class="menu__title">Сырная шпаргалка</span><span class="menu__hint2">Пять шагов до головки сыра</span></a></li>
+        <li><a href="#degustacia" data-menu-link data-photo="16"><span class="menu__num mono">04</span><span class="menu__title">Дегустация</span><span class="menu__hint2">«Шевр», полутвердый и «Анютка»</span></a></li>
+        <li><a href="#recept" data-menu-link data-photo="35"><span class="menu__num mono">05</span><span class="menu__title">Рецепт от шефа</span><span class="menu__hint2">Рассольный молодой — 6 шагов</span></a></li>
+        <li><a href="#galereya" data-menu-link data-photo="38"><span class="menu__num mono">06</span><span class="menu__title">Галерея</span><span class="menu__hint2">Все 50 кадров с фермы</span></a></li>
+      </ol>
+      <div class="menu__foot">
+        <p class="mono">Фото Кристина Фанченко · «СГ»</p>
+        <button class="menu__close" type="button" data-menu-close>Закрыть <span class="mono">ESC</span></button>
+      </div>
+    </nav>
+
+    <span class="menu__preview" data-menu-preview aria-hidden="true"></span>
+  </div>
+</div>
+
+<!-- Боковой рельс: шкала «созревания» -->
+<aside class="rail" aria-label="Положение в репортаже">
+  <div class="rail__thermo" aria-hidden="true"><i data-rail-fill></i></div>
+  <ol class="rail__list">
+    <li><a href="#shengen" data-nav-link><i></i><span class="mono">01 · Шенген</span></a></li>
+    <li><a href="#vily" data-nav-link><i></i><span class="mono">02 · Вилы</span></a></li>
+    <li><a href="#shpargalka" data-nav-link><i></i><span class="mono">03 · Шпаргалка</span></a></li>
+    <li><a href="#degustacia" data-nav-link><i></i><span class="mono">04 · Дегустация</span></a></li>
+    <li><a href="#recept" data-nav-link><i></i><span class="mono">05 · Рецепт</span></a></li>
+    <li><a href="#galereya" data-nav-link><i></i><span class="mono">06 · Галерея</span></a></li>
+  </ol>
+  <p class="rail__temp mono" aria-hidden="true"><span data-rail-temp>10.0</span> °C</p>
+</aside>
+
+<main id="main">
+
+<!-- Герой -->
+<section class="hero" id="top" data-theme="milk" data-scene="hero" data-bg="49">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.04">
+      <source type="image/webp" srcset="assets/img/opt/kyz-49-sm.webp 900w, assets/img/opt/kyz-49-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-49-sm.webp" alt="" width="900" height="600" loading="lazy" fetchpriority="low" decoding="async">
+    </picture>
+  </div>
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="hero__stage">
+    <figure class="hero__shot hero__shot--main" data-parallax="0.05" data-tilt>
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-34-sm.webp 900w, assets/img/opt/kyz-34-md.webp 1700w" sizes="(max-width: 900px) 92vw, 46vw">
+        <img src="assets/img/opt/kyz-34-sm.webp" alt="Альпийская коза смотрит прямо в кадр на ферме в Буево" width="1700" height="1133" fetchpriority="high" decoding="async">
+      </picture>
+      <figcaption class="mono">Коза №4. Смотрит в душу</figcaption>
+    </figure>
+    <figure class="hero__shot hero__shot--left" data-parallax="0.13" data-tilt>
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-29-sm.webp 900w, assets/img/opt/kyz-29-md.webp 1700w" sizes="(max-width: 900px) 60vw, 26vw">
+        <img src="assets/img/opt/kyz-29-sm.webp" alt="Ирина Лужкова обнимает козу у сарая" width="1700" height="1133" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="mono">Любовь — обязательный ингредиент</figcaption>
+    </figure>
+    <figure class="hero__shot hero__shot--right" data-parallax="0.19" data-tilt>
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-38-sm.webp 900w, assets/img/opt/kyz-38-md.webp 1700w" sizes="(max-width: 900px) 54vw, 22vw">
+        <img src="assets/img/opt/kyz-38-sm.webp" alt="Разрезанные головки полутвердого козьего сыра" width="1700" height="1133" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="mono">11 видов сыра</figcaption>
+    </figure>
+  </div>
+
+  <div class="hero__body">
+    <p class="kicker mono" data-reveal="fade">Как дети асфальта элитный сыр варили · репортаж «СГ»</p>
+    <h1 class="hero__title">
+      <span class="line"><b data-split="chars">Наш буевский</b></span>
+      <span class="line"><b data-split="chars">ответ</b> <em data-split="chars">Альпам</em></span>
+    </h1>
+    <p class="hero__deck" data-reveal="up">Как дети асфальта пытались перехитрить породистых коз и сварить элитный сыр — журналисты «СГ» стали… сыроварами</p>
+    <div class="hero__cta" data-reveal="up">
+      <a class="btn btn--solid" href="#intro" data-magnetic>Читать репортаж</a>
+      <button class="btn btn--outline" type="button" data-lightbox-open data-photo="35" data-magnetic>Кадр дня</button>
+    </div>
+  </div>
+
+  <div class="seal" data-spin aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <defs><path id="sealPath" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"></path></defs>
+      <text class="seal__text"><textPath href="#sealPath">Козья сыроварня · Буево · «СГ» · наш ответ Альпам · </textPath></text>
+    </svg>
+    <span class="quadset quadset--seal" aria-hidden="true">
+      <img src="assets/img/logo.png" alt="" class="quad quad--tl" loading="lazy">
+      <img src="assets/img/logo.png" alt="" class="quad quad--tr" loading="lazy">
+      <img src="assets/img/logo.png" alt="" class="quad quad--bl" loading="lazy">
+      <img src="assets/img/logo.png" alt="" class="quad quad--br" loading="lazy">
+    </span>
+  </div>
+
+  <dl class="hero__stats" data-reveal="stagger">
+    <div class="stat"><dt class="mono">км от Витебска</dt><dd><span data-counter="20">20</span></dd></div>
+    <div class="stat"><dt class="mono">видов сыра на ферме</dt><dd><span data-counter="11">11</span></dd></div>
+    <div class="stat"><dt class="mono">желудков у козы</dt><dd><span data-counter="4">4</span></dd></div>
+    <div class="stat"><dt class="mono">лет было Ирине при переезде</dt><dd><span data-counter="48">48</span></dd></div>
+  </dl>
+
+  <div class="ticker" data-marquee data-speed="64" data-marquee-source="ticker" aria-hidden="true"></div>
+</section>
+<!-- Вместо предисловия -->
+<section class="intro" id="intro" data-theme="paper" data-scene="intro" data-bg="20">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-20-sm.webp 900w, assets/img/opt/kyz-20-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-20-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <div class="wrap intro__grid">
+    <div class="intro__text">
+      <p class="kicker mono" data-reveal="fade">Вместо предисловия</p>
+      <p class="intro__drop" data-reveal="up"><span class="dropcap" aria-hidden="true">В</span>ы когда-нибудь думали бросить все и сменить профессию? Например, уехать в глушь и заняться крафтовым сыроделием? Я, журналист «СГ» Егор Дулевич, отчаянно рискнул это сделать. Правда, всего на один день.</p>
+      <p data-reveal="up">Но этого времени хватило, чтобы понять: ремесло сыровара — захватывающий, но трудоемкий процесс. Спойлер: гуманитариям, как я, точно будет сложно. Хотя и не стоит, наверное, обобщать.</p>
+      <p data-reveal="up">На слово вы мне вряд ли поверите, поэтому приготовьтесь к честному репортажу о том, как я вместе с коллегой-фотографом Кристиной Фанченко пытался крутить сырные головы. А еще мы много любопытного узнали про коз. Например, почему козьи желудки работают как ядерный реактор?</p>
+      <p data-reveal="up">В общем, нам было интересно. Фермеров просим не судить строго, а урбанистам, думаю, будет познавательно узнать о реалиях сельской жизни, в которых трудолюбивые и талантливые люди производят уникальный продукт, достойный мишленовских ресторанов. Заинтриговали? Тогда в путь!</p>
+    </div>
+
+    <aside class="authcard" data-reveal="up">
+      <div class="authcard__faces">
+        <figure class="ph ph--avatar" data-photo="03">
+          <picture>
+            <source type="image/webp" srcset="assets/img/opt/kyz-03-sm.webp 900w" sizes="72px">
+            <img src="assets/img/opt/kyz-03-sm.webp" alt="Журналист «СГ» Егор Дулевич процеживает сырную массу" width="900" height="600" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+        <figure class="ph ph--avatar" data-photo="42">
+          <picture>
+            <source type="image/webp" srcset="assets/img/opt/kyz-42-sm.webp 900w" sizes="72px">
+            <img src="assets/img/opt/kyz-42-sm.webp" alt="Фотокорреспондент «СГ» Кристина Фанченко в перчатках" width="900" height="600" loading="lazy" decoding="async">
+          </picture>
+        </figure>
+      </div>
+      <p class="authcard__who"><b>Егор ДУЛЕВИЧ</b>, журналист «СГ»<br><span class="mono">dulevich@sb.by</span></p>
+      <p class="authcard__who">Фото <b>Кристина Фанченко</b><br><span class="mono">один день · 50 кадров</span></p>
+    </aside>
+  </div>
+
+  <div class="ticker ticker--ink" data-marquee data-speed="-52" data-marquee-source="ticker" aria-hidden="true"></div>
+</section>
+
+<!-- 01 Шенген не нужен -->
+<section class="sec sec--shengen" id="shengen" data-theme="paper" data-scene="shengen" data-bg="01">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-01-sm.webp 900w, assets/img/opt/kyz-01-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-01-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">01 / Шенген не нужен</p>
+    <h2 class="sechead__title" data-split="words">Козы вместо Альп</h2>
+    <p class="sechead__note mono" data-reveal="fade">Искать правильный козий сыр — квест еще тот</p>
+  </header>
+
+  <div class="wrap cols">
+    <div class="col col--wide">
+      <p class="lead" data-reveal="up">В магазинах и на рынках его хватает: наши молочные производители постоянно балуют новинками, расширяют линейку продукции, завоевывают медали на самых престижных международных конкурсах. Но нам с Кристиной хотелось найти настоящую крафтовую экзотику.</p>
+      <p data-reveal="up">И для этого нам не пришлось рвануть в Альпы. К счастью, альпийские козочки и на наших лугах, как узнал в процессе долгого изучения темы, чувствуют себя неплохо. Колоритная ферма с породистыми животными нашлась всего в 20 километрах от Витебска — в деревне Буево. Хозяйничает на ней Ирина Лужкова. Она и главный сыровар, и заботливая «мама» для целого зоопарка. На ее подворье мы насчитали роскошного альпийского козла, пять козочек, немецкую овчарку, крошечную кошку и целый десант горделивых уток с курами.</p>
+      <p data-reveal="up">Ирина — коренная витебчанка. До 48 лет она жила в городе и успешно работала на фабрике «Милавица». А потом решила круто изменить жизнь:</p>
+    </div>
+    <div class="col">
+      <ul class="zoo" data-reveal="stagger">
+        <li><b class="mono">01</b><span>роскошный альпийский козёл</span></li>
+        <li><b class="mono">05</b><span>породистых козочек</span></li>
+        <li><b class="mono">01</b><span>немецкая овчарка</span></li>
+        <li><b class="mono">01</b><span>крошечная кошка</span></li>
+        <li><b class="mono">∞</b><span>десант горделивых уток с курами</span></li>
+      </ul>
+      <figure class="ph ph--portrait" data-reveal="clip" data-tilt>
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-12-sm.webp 900w, assets/img/opt/kyz-12-md.webp 1700w" sizes="(max-width: 900px) 92vw, 30vw">
+          <img src="assets/img/opt/kyz-12-sm.webp" alt="Ирина Лужкова обнимает двух коз с ветеринарными бирками" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="mono">Бирки — строгий ветеринарный учёт</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <blockquote class="quote quote--big" data-reveal="up">
+    <p>— В один день вдруг поняла, что устала от города. Вроде все было хорошо: и карьера, и семья, и своя квартира. Чего-то для счастья не хватало. Внутри будто тумблер переключился, и я уволилась. Мы с мужем собрали вещи, оставили жилье детям и уехали в деревню. И только здесь почувствовала себя по-настоящему счастливой.</p>
+    <footer class="mono">Ирина Лужкова · коренная витебчанка</footer>
+  </blockquote>
+</section>
+
+<!-- 01 Шенген не нужен · продолжение -->
+<section class="sec sec--shengen" id="shengen-2" data-theme="paper" data-scene="shengen-2" data-parent="shengen" data-bg="31">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-31-sm.webp 900w, assets/img/opt/kyz-31-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-31-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">01 / Шенген не нужен · продолжение</p>
+    <h2 class="sechead__title" data-split="words">Дотошный подход</h2>
+  </header>
+
+  <div class="wrap cols">
+    <div class="col col--wide">
+      <p class="lead" data-reveal="up">После городской суеты деревенская тишина поначалу показалась новым сельчанам скучной. Энергия требовала выхода, и Ирина решила завести козу.</p>
+      <blockquote class="quote quote--inline" data-reveal="up">
+        <p>— Я человек дотошный: если за что-то берусь, то погружаюсь с головой, — смеется хозяйка. — Просто купить козу на рынке — не мой вариант. Я перерыла горы книг, изучила все породы и особенности ухода.</p>
+      </blockquote>
+      <p data-reveal="up">За своими первыми альпийскими козами Ирина поехала в Россию — в Нижегородскую и Волгоградскую области. Привезла и начала заботиться о них. Через год молока стало так много, что возник новый вопрос: что с ним делать? Знакомая подсказала: вари сыр.</p>
+    </div>
+    <figure class="ph ph--portrait" data-reveal="clip" data-tilt>
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-04-sm.webp 900w, assets/img/opt/kyz-04-md.webp 1700w" sizes="(max-width: 900px) 92vw, 30vw">
+        <img src="assets/img/opt/kyz-04-sm.webp" alt="Альпийская коза крупным планом у деревянного забора" width="1700" height="1133" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="mono">Породы Ирина выбирала по книгам</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 01 Шенген не нужен · продолжение -->
+<section class="sec sec--shengen" id="shengen-3" data-theme="paper" data-scene="shengen-3" data-parent="shengen" data-bg="32">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-32-sm.webp 900w, assets/img/opt/kyz-32-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-32-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">01 / Шенген не нужен · продолжение</p>
+    <h2 class="sechead__title" data-split="words">Три года практики</h2>
+  </header>
+
+  <div class="wrap cols cols--flip">
+    <div class="col col--wide">
+      <blockquote class="quote" data-reveal="up">
+        <p>— В моей голове обычная банка молока и изысканный сыр никак не связывались в одну цепочку. Я понятия не имела, как к этому подступиться. Нашла в интернете самый простой рецепт и вслепую повторила шаги. На удивление, с первой же попытки получился отличный сыр! Вот тогда у меня загорелись глаза, и я снова засела за учебники.</p>
+        <footer class="mono">Ирина Лужкова</footer>
+      </blockquote>
+      <p data-reveal="up">Сегодня, спустя три года практики, на ферме делают 11 видов сыра разной сложности. Есть даже фирменный секретный десерт «Анютка» — нежный творожный сырок из козьего молока.</p>
+      <p data-reveal="up">Все животные здесь на строгом ветеринарном учете, а условия у них — как в козьем санатории. И животные платят за это взаимностью: ходят за Ириной по пятам и слушаются не хуже дрессированных собак.</p>
+    </div>
+    <figure class="ph ph--portrait" data-reveal="clip" data-tilt>
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-29-sm.webp 900w, assets/img/opt/kyz-29-md.webp 1700w" sizes="(max-width: 900px) 92vw, 30vw">
+        <img src="assets/img/opt/kyz-29-sm.webp" alt="Ирина Лужкова держит козу за шею у сарая" width="1700" height="1133" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="mono">Ходят по пятам и слушаются с полуслова</figcaption>
+    </figure>
+  </div>
+
+  <blockquote class="quote quote--red" data-reveal="up">
+    <p>— Козы — животные очень умные и чуткие, — объясняет хозяйка. — Их пищеварительная система из четырех желудков работает как сложный реактор, туда нельзя бросать плохой корм. Но еще важнее для них — ласка. В отличие от коров козам жизненно необходимы любовь и внимание. Когда они в комфорте и безопасности, то и молоко дают идеальное, без всякого специфического запаха. Так что любовь — обязательный ингредиент в нашем рецепте.</p>
+    <footer class="mono">Ирина Лужкова · инструктаж перед сменой</footer>
+  </blockquote>
+
+  <!-- Карусель: жители подворья -->
+  <div class="carousel" data-carousel data-carousel-group="farm" data-carousel-name="Жители подворья">
+    <div class="carousel__head wrap">
+      <h3 class="carousel__title">Подворье в лицах</h3>
+      <p class="carousel__meta mono" aria-hidden="true"><span data-carousel-status>01 / 16</span></p>
+    </div>
+    <div class="carousel__track" data-carousel-track role="region" aria-label="Карусель: животные подворья в Буево" tabindex="0">
+      <figure class="slide" data-photo="01">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-01-sm.webp 900w, assets/img/opt/kyz-01-md.webp 1700w" sizes="(max-width: 700px) 78vw, 34vw">
+          <img src="assets/img/opt/kyz-01-sm.webp" alt="Ирина Лужкова выводит коз на луг" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><b class="mono">01</b> Ирина Лужкова выводит коз на луг</figcaption>
+      </figure>
+      <figure class="slide" data-photo="29">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-29-sm.webp 900w, assets/img/opt/kyz-29-md.webp 1700w" sizes="(max-width: 700px) 78vw, 34vw">
+          <img src="assets/img/opt/kyz-29-sm.webp" alt="Ирина Лужкова обнимает козу" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><b class="mono">29</b> Любовь — обязательный ингредиент</figcaption>
+      </figure>
+      <figure class="slide" data-photo="05">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-05-sm.webp 900w, assets/img/opt/kyz-05-md.webp 1700w" sizes="(max-width: 700px) 78vw, 34vw">
+          <img src="assets/img/opt/kyz-05-sm.webp" alt="Рука в красном рукаве гладит козу" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><b class="mono">05</b> Ласка вместо дисциплины</figcaption>
+      </figure>
+    </div>
+    <div class="carousel__controls wrap">
+      <button class="cbtn" type="button" data-carousel-prev aria-label="Предыдущий кадр">←</button>
+      <div class="carousel__bar" aria-hidden="true"><i data-carousel-bar></i></div>
+      <button class="cbtn" type="button" data-carousel-next aria-label="Следующий кадр">→</button>
+      <p class="carousel__hint mono">Тяните мышью или стрелками ←→</p>
+    </div>
+  </div>
+</section>
+<!-- 02 От вил — к марле -->
+<section class="sec sec--vily" id="vily" data-theme="ink" data-scene="vily" data-bg="06">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-06-sm.webp 900w, assets/img/opt/kyz-06-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-06-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">02 / От вил — к марле</p>
+    <h2 class="sechead__title" data-split="words">Один день сыровара</h2>
+    <p class="sechead__note mono" data-reveal="fade">Вилы и кастрюля — первые остановки на пути к сыру</p>
+  </header>
+
+  <div class="pinned" data-pinned>
+    <div class="pinned__stage">
+      <figure class="pinned__img is-active" data-photo="06">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-06-sm.webp 900w, assets/img/opt/kyz-06-md.webp 1700w" sizes="(max-width: 1000px) 92vw, 44vw">
+          <img src="assets/img/opt/kyz-06-sm.webp" alt="Егор Дулевич с вилами перекладывает сено в амбаре" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <figure class="pinned__img" data-photo="18">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-18-sm.webp 900w, assets/img/opt/kyz-18-md.webp 1700w" sizes="(max-width: 1000px) 92vw, 44vw">
+          <img src="assets/img/opt/kyz-18-sm.webp" alt="Ирина Лужкова наливает молоко в кастрюлю мерным стаканом" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <p class="pinned__badge mono" aria-hidden="true"><span data-pinned-count>01</span> / 02</p>
+    </div>
+
+    <div class="pinned__steps">
+      <article class="pstep" data-pinned-step="0">
+        <p class="pstep__tag mono">остановка 01 · амбар</p>
+        <h3 class="pstep__title">Молоко начинается с сена</h3>
+        <p>После такого инструктажа мне наконец-то разрешили поучаствовать в процессе. Правда, совсем не так, как я себе представлял. Не успел дослушать фразу «молоко начинается с сена», как уже стоял у амбара с вилами в руках.</p>
+        <p>Перевозить сухую траву из точки А в точку Б — дело, безусловно, важное для вкуса будущего сыра, но для городского журналиста малоинтересное.</p>
+      </article>
+      <article class="pstep" data-pinned-step="1">
+        <p class="pstep__tag mono">остановка 02 · кастрюля</p>
+        <h3 class="pstep__title">Треть арсенала</h3>
+        <blockquote class="quote quote--inline">
+          <p>— Простой мягкий сыр мы бы с вами сделали быстро, но для этого коз нужно было подоить в пять утра. Вы припозднились, — озвучил мне страшную правду мой сырный гуру. — Так что для начала помогите стерилизовать инструменты.</p>
+        </blockquote>
+        <p>Делать нечего. Тщательно мою руки и загружаю в огромную кастрюлю лопатки, ситечки, ножи, витиеватые ложки и формы. Как оказалось, это в лучшем случае треть арсенала опытного сыровара. Пока пытался угадать назначение всех этих приспособлений, Ирина увлеченно рассказывала о тонкостях дела.</p>
+      </article>
+    </div>
+  </div>
+  <div class="wrap arsenal" data-reveal="stagger">
+    <p class="arsenal__lead">В кастрюлю отправились: <b>лопатки, ситечки, ножи, витиеватые ложки и формы</b> — и это в лучшем случае треть арсенала опытного сыровара.</p>
+    <ul class="arsenal__list">
+      <li class="mono">лопатки</li>
+      <li class="mono">ситечки</li>
+      <li class="mono">ножи</li>
+      <li class="mono">витиеватые ложки</li>
+      <li class="mono">формы</li>
+      <li class="mono">термометр</li>
+      <li class="mono">шумовка</li>
+      <li class="mono">дренажный коврик</li>
+      <li class="mono">марля</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 От вил — к марле · продолжение -->
+<section class="sec sec--vily" id="vily-2" data-theme="ink" data-scene="vily-2" data-parent="vily" data-bg="28">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-28-sm.webp 900w, assets/img/opt/kyz-28-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-28-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">02 / От вил — к марле · продолжение</p>
+    <h2 class="sechead__title" data-split="words">Марля и сыворотка</h2>
+  </header>
+
+  <div class="wrap cols">
+    <div class="col col--wide">
+      <p class="lead" data-reveal="up">Наш фотокорреспондент Кристина, вдобавок ко всем своим талантам, оказалась подкована еще и в сыроварении. Она явно понимала термины с полуслова и с энтузиазмом включилась в беседу. Мне от этого легче не стало. От обилия информации в голове творилось примерно то же самое, что и в закипающей рядом кастрюле.</p>
+      <p data-reveal="up">Заметив мое замешательство, Ирина решила сменить тактику и доверила мне процесс, максимально похожий на настоящее сыроделие. Натянув перчатки, я принялся процеживать готовую молочную массу через марлю, чтобы стекла сыворотка. Задача нехитрая: аккуратно расправить салфетку в форме и перелить туда остывшее молоко с закваской. Сыворотка уходит, а плотная творожная масса остается. Именно из нее потом и созревает сыр.</p>
+    </div>
+    <figure class="ph ph--portrait" data-reveal="clip" data-tilt>
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-46-sm.webp 900w, assets/img/opt/kyz-46-md.webp 1700w" sizes="(max-width: 900px) 92vw, 30vw">
+        <img src="assets/img/opt/kyz-46-sm.webp" alt="Егор и Кристина раскладывают сырную массу на марлю" width="1700" height="1133" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="mono">Марля расправлена — сыворотка уходит</figcaption>
+    </figure>
+  </div>
+
+  <!-- Слайдер «до / после» -->
+  <div class="wrap">
+    <figure class="ba" data-ba data-reveal="clip">
+      <div class="ba__frame">
+        <img class="ba__img" src="assets/img/opt/kyz-38-sm.webp" alt="Готовый полутвердый козий сыр на разрезе" width="900" height="600" loading="lazy" decoding="async">
+        <img class="ba__img ba__img--top" src="assets/img/opt/kyz-18-sm.webp" alt="Молоко в большой кастрюле во время пастеризации" width="900" height="600" loading="lazy" decoding="async">
+        <span class="ba__handle" aria-hidden="true"><i></i></span>
+      </div>
+      <input class="ba__range" type="range" min="0" max="100" step="1" value="50" data-ba-range aria-label="Сравнить молоко и готовый сыр">
+      <figcaption class="ba__cap mono"><span>молоко · 34 °C</span><span>головка сыра · 11 видов</span></figcaption>
+    </figure>
+  </div>
+
+  <!-- Карусель: день сыровара -->
+  <div class="carousel carousel--wide" data-carousel data-carousel-group="process" data-carousel-name="День сыровара">
+    <div class="carousel__head wrap">
+      <h3 class="carousel__title">Смена в кадре</h3>
+      <p class="carousel__meta mono" aria-hidden="true"><span data-carousel-status>01 / 17</span></p>
+    </div>
+    <div class="carousel__track" data-carousel-track role="region" aria-label="Карусель: один день на сыроварне" tabindex="0">
+      <figure class="slide" data-photo="06">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-06-sm.webp 900w, assets/img/opt/kyz-06-md.webp 1700w" sizes="(max-width: 700px) 78vw, 34vw">
+          <img src="assets/img/opt/kyz-06-sm.webp" alt="Егор Дулевич с вилами в амбаре" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><b class="mono">06</b> «Молоко начинается с сена»</figcaption>
+      </figure>
+      <figure class="slide" data-photo="41">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-41-sm.webp 900w, assets/img/opt/kyz-41-md.webp 1700w" sizes="(max-width: 700px) 78vw, 34vw">
+          <img src="assets/img/opt/kyz-41-sm.webp" alt="Егор Дулевич везёт тачку с сеном" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><b class="mono">41</b> Вилы, сено и один день сыровара</figcaption>
+      </figure>
+      <figure class="slide" data-photo="18">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-18-sm.webp 900w, assets/img/opt/kyz-18-md.webp 1700w" sizes="(max-width: 700px) 78vw, 34vw">
+          <img src="assets/img/opt/kyz-18-sm.webp" alt="Молоко в кастрюле на паровой бане" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption><b class="mono">18</b> Молоко: пастеризация началась</figcaption>
+      </figure>
+    </div>
+    <div class="carousel__controls wrap">
+      <button class="cbtn" type="button" data-carousel-prev aria-label="Предыдущий кадр">←</button>
+      <div class="carousel__bar" aria-hidden="true"><i data-carousel-bar></i></div>
+      <button class="cbtn" type="button" data-carousel-next aria-label="Следующий кадр">→</button>
+      <p class="carousel__hint mono">Кликните кадр, чтобы открыть его целиком</p>
+    </div>
+  </div>
+</section>
+<!-- 03 Сырная шпаргалка -->
+<section class="sec sec--shpargalka" id="shpargalka" data-theme="red" data-scene="shpargalka" data-bg="07">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-07-sm.webp 900w, assets/img/opt/kyz-07-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-07-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">03 / Сырная шпаргалка</p>
+    <h2 class="sechead__title" data-split="words">Пять шагов до головки</h2>
+    <p class="sechead__note mono" data-reveal="fade">Универсальный алгоритм, записанный в блокнот на веранде с печью</p>
+  </header>
+
+  <div class="wrap cols">
+    <div class="col col--wide">
+      <p class="lead" data-reveal="up">На этом физический труд закончился. Изготовление полутвердого сыра занимает от двух недель до нескольких месяцев, так что ждать у марли следующего этапа пришлось бы слишком долго.</p>
+      <p data-reveal="up">Мы переместились на веранду с печью — местный «сырный бар» с холодильником, где ждали своего часа готовые головки. Только здесь, окончательно контуженный теорией, я догадался спросить: из чего слагается универсальная основа для создания любого сыра? Ирина с пониманием отнеслась к моему ступору и выдала четкий алгоритм, который я честно записал в блокнот.</p>
+    </div>
+    <div class="col">
+      <div class="thermo" data-reveal="up" data-thermo>
+        <p class="thermo__label mono">вызревание</p>
+        <div class="thermo__tube">
+          <span class="thermo__zone mono">10–14</span>
+          <i class="thermo__fill" data-thermo-fill></i>
+        </div>
+        <p class="thermo__value"><b><span data-counter="12">12</span></b> <span class="mono">°C</span></p>
+        <p class="thermo__cap mono">хранится готовый продукт при 2–6 °C</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Пять шагов -->
+  <ol class="steps" data-accordion data-reveal="stagger">
+    <li class="step is-open">
+      <button class="step__head" type="button" aria-expanded="true" data-step="0">
+        <span class="step__num mono">Шаг 1.</span>
+        <span class="step__title">Правильное сырье</span>
+        <span class="step__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <div class="step__body">
+        <p>Молоко должно быть идеальным. Если коза понервничала, приболела или съела что-то не то, при нагревании молоко поведет себя как прокисшее, а у сыра появится неприятный привкус.</p>
+      </div>
+    </li>
+    <li class="step">
+      <button class="step__head" type="button" aria-expanded="false" data-step="1">
+        <span class="step__num mono">Шаг 2.</span>
+        <span class="step__title">Хитрый нагрев</span>
+        <span class="step__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <div class="step__body">
+        <p>Молоко нужно пастеризовать, но ни в коем случае не кипятить. Есть два пути: либо нагреть до 65 градусов и выдержать полчаса, либо раскалить до 72 градусов, подождать ровно 10 секунд и резко охладить кастрюлю в ледяной воде. Так убиваются вредные бактерии, но остаются полезные микроэлементы.</p>
+      </div>
+    </li>
+    <li class="step">
+      <button class="step__head" type="button" aria-expanded="false" data-step="2">
+        <span class="step__num mono">Шаг 3.</span>
+        <span class="step__title">Спасение кальция</span>
+        <span class="step__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <div class="step__body">
+        <p>После пастеризации природный кальций меняет форму и перестает усваиваться организмом. На заводах на это часто закрывают глаза, но в крафтовой сыроварне кальций обязательно возвращают на его законное место вручную.</p>
+      </div>
+    </li>
+    <li class="step">
+      <button class="step__head" type="button" aria-expanded="false" data-step="3">
+        <span class="step__num mono">Шаг 4.</span>
+        <span class="step__title">Защита и вкус</span>
+        <span class="step__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <div class="step__body">
+        <p>В молоко добавляют закваску и специальную защитную культуру. Защита оберегает продукт от чужеродных бактерий и формирует один из трех вкусовых оттенков. А от вида самой закваски и времени ее выдержки итоговый результат зависит практически на 100 процентов.</p>
+      </div>
+    </li>
+    <li class="step">
+      <button class="step__head" type="button" aria-expanded="false" data-step="4">
+        <span class="step__num mono">Шаг 5.</span>
+        <span class="step__title">Рождение сгустка</span>
+        <span class="step__icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <div class="step__body">
+        <p>В финале массу скрепляют ферментами, которые превращают измученное манипуляциями молоко в плотный сгусток. Дальше — чистая кулинарная магия: массу режут на кубики, добавляют специи по вкусу, прессуют, покрывают латексом и отправляют на вызревание.</p>
+      </div>
+    </li>
+  </ol>
+
+  <p class="numbers mono" data-reveal="up">Для тех читателей, кто разбирается в технологиях лучше меня, оставлю важные цифры: вызревать сыр должен при температуре от 10 до 14 градусов тепла, а хранится готовый продукт при 2–6 градусах.</p>
+</section>
+<!-- 04 Дегустация -->
+<section class="sec sec--degustacia" id="degustacia" data-theme="curd" data-scene="degustacia" data-bg="11">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-11-sm.webp 900w, assets/img/opt/kyz-11-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-11-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">04 / Дегустация</p>
+    <h2 class="sechead__title" data-split="words">Три сыра на пробу</h2>
+    <p class="sechead__note mono" data-reveal="fade">Молодой полутвердый, «Шевр» и «Анютка»</p>
+  </header>
+
+  <div class="wrap">
+    <p class="lead lead--wide" data-reveal="up">Наконец-то настал момент, когда можно было расслабиться. Нам с Кристиной разрешили оценить результаты этого умопомрачительного труда.</p>
+  </div>
+
+  <div class="wrap cols">
+    <div class="col col--wide">
+      <p data-reveal="up">На дегустацию мы получили молодой полутвердый сыр, знаменитый французский «Шевр» и тот самый секретный десерт «Анютка». Мои познания в сыре вы уже оценили, так что скажу прямо: это фантастически вкусно. И кардинально отличается от всего, что продается в супермаркетах.</p>
+      <p data-reveal="up">А уж авторский цветочный десерт из козьего молока — это вообще эксклюзив, ничего подобного я раньше не пробовал. Будете проезжать мимо деревни Буево, обязательно загляните к Ирине. А пока передаю слово своей коллеге, которая согласилась выступить гастрономическим экспертом за двоих.</p>
+    </div>
+    <figure class="ph ph--portrait" data-reveal="clip" data-tilt>
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-47-sm.webp 900w, assets/img/opt/kyz-47-md.webp 1700w" sizes="(max-width: 900px) 92vw, 30vw">
+        <img src="assets/img/opt/kyz-47-sm.webp" alt="Натюрморт: сыр, виноград, яблоки и домашние заготовки" width="1700" height="1133" loading="lazy" decoding="async">
+      </picture>
+      <figcaption class="mono">Стол для дегустации накрыт</figcaption>
+    </figure>
+  </div>
+
+  <div class="tastes" data-reveal="stagger">
+    <article class="taste" data-tilt>
+      <span class="taste__num mono">01</span>
+      <h3 class="taste__title">Полутвердый<br>молодой</h3>
+      <p class="taste__note">Молодой полутвердый сыр из козьего молока — тот самый результат смены.</p>
+      <ul class="taste__tags">
+        <li class="mono">сливочный</li>
+        <li class="mono">лёгкий</li>
+        <li class="mono">без резкого запаха</li>
+      </ul>
+      <figure class="ph ph--card" data-photo="07">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-07-sm.webp 900w" sizes="(max-width: 900px) 90vw, 28vw">
+          <img src="assets/img/opt/kyz-07-sm.webp" alt="Полутвердый сыр на разрезе, нож в руках дегустатора" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </article>
+
+    <article class="taste" data-tilt>
+      <span class="taste__num mono">02</span>
+      <h3 class="taste__title">«Шевр»</h3>
+      <p class="taste__note">Знаменитый французский сыр в авторской версии Ирины — очередной удачный эксперимент хозяйки.</p>
+      <ul class="taste__tags">
+        <li class="mono">специи</li>
+        <li class="mono">нежный сливочный вкус</li>
+        <li class="mono">нотки грецкого ореха</li>
+      </ul>
+      <figure class="ph ph--card" data-photo="32">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-32-sm.webp 900w" sizes="(max-width: 900px) 90vw, 28vw">
+          <img src="assets/img/opt/kyz-32-sm.webp" alt="Головка сыра с оттиском логотипа «Козья сыроварня» на ладони" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </article>
+
+    <article class="taste" data-tilt>
+      <span class="taste__num mono">03</span>
+      <h3 class="taste__title">«Анютка»</h3>
+      <p class="taste__note">Фирменный секретный десерт: нежный творожный сырок и цветочный крем-десерт из козьего молока.</p>
+      <ul class="taste__tags">
+        <li class="mono">эксклюзив</li>
+        <li class="mono">топпинг к выпечке</li>
+        <li class="mono">творожный крем</li>
+      </ul>
+      <figure class="ph ph--card" data-photo="16">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-16-sm.webp 900w" sizes="(max-width: 900px) 90vw, 28vw">
+          <img src="assets/img/opt/kyz-16-sm.webp" alt="Десерт «Анютка» — кремовые розочки из козьего молока на тарелке" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </article>
+  </div>
+
+  <blockquote class="quote quote--expert" data-reveal="up">
+    <figure class="ph ph--expert" data-photo="50">
+      <picture>
+        <source type="image/webp" srcset="assets/img/opt/kyz-50-sm.webp 900w" sizes="180px">
+        <img src="assets/img/opt/kyz-50-sm.webp" alt="Кристина Фанченко режет сыр на дегустационном столе" width="900" height="600" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+    <div>
+      <p>— В сыре «Шевр» я однозначно оценила гармонию специй и нежного сливочного вкуса с тонкими нотками грецкого ореха. Это очередной удачный эксперимент Ирины, — подытожила фотокорреспондент Кристина Фанченко. — «Анютка» действительно интересная находка. Такой крем-десерт идеально подошел бы в качестве топпинга к домашней выпечке. Что касается самого козьего сыра: у него есть свой характер, но вкус при этом очень легкий, нежный и сливочный, без какого-либо резкого специфического запаха, к которому многие привыкли. Сразу видно руку мастера.</p>
+      <footer class="mono">Кристина Фанченко · фотокорреспондент «СГ»</footer>
+    </div>
+  </blockquote>
+  <!-- Кинолента: стол дегустации -->
+  <div class="strip" data-strip data-strip-group="tasting" aria-label="Фотографии дегустации">
+    <div class="strip__rail" data-strip-rail tabindex="0">
+      <figure class="strip__item" data-photo="10">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-10-tn.webp 400w, assets/img/opt/kyz-10-sm.webp 900w" sizes="(max-width: 700px) 44vw, 20vw">
+          <img src="assets/img/opt/kyz-10-tn.webp" alt="Сырная полка на просушке" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <figure class="strip__item" data-photo="11">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-11-tn.webp 400w, assets/img/opt/kyz-11-sm.webp 900w" sizes="(max-width: 700px) 44vw, 20vw">
+          <img src="assets/img/opt/kyz-11-tn.webp" alt="Стол для дегустации с сырами и десертом" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <figure class="strip__item" data-photo="47">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-47-tn.webp 400w, assets/img/opt/kyz-47-sm.webp 900w" sizes="(max-width: 700px) 44vw, 20vw">
+          <img src="assets/img/opt/kyz-47-tn.webp" alt="Натюрморт: сыр, виноград, яблоки и домашние заготовки" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <figure class="strip__item" data-photo="33">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-33-tn.webp 400w, assets/img/opt/kyz-33-sm.webp 900w" sizes="(max-width: 700px) 44vw, 20vw">
+          <img src="assets/img/opt/kyz-33-tn.webp" alt="Свежий разрез сыра с дырочками" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <figure class="strip__item" data-photo="22">
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-22-tn.webp 400w, assets/img/opt/kyz-22-sm.webp 900w" sizes="(max-width: 700px) 44vw, 20vw">
+          <img src="assets/img/opt/kyz-22-tn.webp" alt="Головка сыра в синей корзине после посола" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </div>
+    <p class="strip__hint mono">Тяните ленту влево-вправо · клик открывает кадр</p>
+  </div>
+
+  <aside class="ps" data-reveal="up">
+    <p class="ps__tag mono">P. S.</p>
+    <p class="ps__text">Итог дня в новой роли для меня однозначен: фермером-сыроваром мне не стать. Да и желания после увиденного поубавилось: слишком уж это тяжелый, колоссальный труд. Но, может, для понимания этой профессии мне не хватило не эрудиции и системного мышления, а просто горящего взгляда, как у Ирины? Свое любимое дело у меня уже есть, и менять его я не собираюсь. Зато теперь точно знаю, каково это — быть настоящим сыроваром.</p>
+    <p class="ps__sign mono">Егор Дулевич · «СГ»</p>
+  </aside>
+</section>
+<!-- 05 Рецепт от шефа -->
+<section class="sec sec--recept" id="recept" data-theme="milk" data-scene="recept" data-bg="35">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.05">
+      <source type="image/webp" srcset="assets/img/opt/kyz-35-sm.webp 900w, assets/img/opt/kyz-35-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-35-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">05 / Рецепт от шефа</p>
+    <h2 class="sechead__title" data-split="words">«Рассольный молодой»</h2>
+    <p class="sechead__note mono" data-reveal="fade">Дуршлаг вместо пресса и ювелирные весы</p>
+  </header>
+
+  <div class="wrap cols cols--recipe">
+    <div class="col col--wide">
+      <p class="lead" data-reveal="up">В качестве подарка для читателей «СГ» Ирина Лужкова поделилась страничкой из своей поваренной книги. Рецепт мягкого сыра «Рассольный молодой» достаточно прост для домашней кухни, но результат приятно удивит ваших близких.</p>
+      <h3 class="sub mono" data-reveal="fade">Что понадобится?</h3>
+      <p class="ing__label mono" data-reveal="fade">Ингредиенты</p>
+      <ul class="ing" data-reveal="stagger">
+        <li><b class="mono">5 л</b> козьего молока</li>
+        <li><b class="mono">1 г</b> сухого хлористого кальция</li>
+        <li><b class="mono">0,05 г</b> фермента «Мейто» (важно соблюдать массу, лучше использовать ювелирные весы)</li>
+        <li><b class="mono">По желанию:</b> пажитник, тыквенные семечки или вяленые томаты</li>
+      </ul>
+      <p class="ing__label mono" data-reveal="fade">Инструменты</p>
+      <ul class="ing ing--tools" data-reveal="stagger">
+        <li>термометр</li>
+        <li>форма для самопрессующихся сыров (или обычный дуршлаг)</li>
+        <li>шумовка</li>
+        <li>нож</li>
+        <li>дренажный коврик (или чистая марля)</li>
+      </ul>
+    </div>
+
+    <aside class="book" data-reveal="clip">
+      <figure class="ph ph--book" data-photo="35" data-tilt>
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-35-sm.webp 900w, assets/img/opt/kyz-35-md.webp 1700w" sizes="(max-width: 900px) 92vw, 32vw">
+          <img src="assets/img/opt/kyz-35-sm.webp" alt="Егор Дулевич за столом на веранде с печью, вокруг головки сыра" width="1700" height="1133" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="mono">Сырный бар на веранде с печью</figcaption>
+      </figure>
+      <figure class="ph ph--book-sm" data-photo="48" data-tilt>
+        <picture>
+          <source type="image/webp" srcset="assets/img/opt/kyz-48-tn.webp 400w, assets/img/opt/kyz-48-sm.webp 900w" sizes="(max-width: 900px) 40vw, 14vw">
+          <img src="assets/img/opt/kyz-48-tn.webp" alt="Ирина Лужкова в перчатках за столом с сырами" width="900" height="600" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+    </aside>
+  </div>
+
+  <h3 class="sub sub--center mono" data-reveal="fade">Пошаговое приготовление</h3>
+  <!-- Чек-лист сыровара -->
+  <div class="check" data-checklist data-reveal="up">
+    <div class="check__panel">
+      <svg class="check__ring" viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="check__track" cx="60" cy="60" r="52" pathLength="100"></circle>
+        <circle class="check__prog" cx="60" cy="60" r="52" pathLength="100" data-check-ring></circle>
+      </svg>
+      <p class="check__value"><b data-check-count>0</b><span class="mono">/ 6</span></p>
+      <p class="check__state mono" data-check-state aria-live="polite">Отмечайте шаги — счётчик покажет готовность</p>
+      <figure class="check__done" data-check-done aria-hidden="true">
+        <img src="assets/img/opt/kyz-22-tn.webp" alt="" width="400" height="267" loading="lazy" decoding="async">
+        <figcaption class="mono">Готово! Сыр — на полотенце и в холодильник</figcaption>
+      </figure>
+    </div>
+
+    <ol class="check__list">
+      <li class="ctask">
+        <button class="ctask__btn" type="button" aria-pressed="false" data-check>
+          <span class="ctask__box" aria-hidden="true"></span>
+          <span class="ctask__num mono">01</span>
+          <span class="ctask__title">Пастеризация.</span>
+        </button>
+        <p class="ctask__body">Нагрейте молоко до 72 °C, выдержите 10 секунд и резко охладите в ледяной воде до 34 °C.</p>
+      </li>
+      <li class="ctask">
+        <button class="ctask__btn" type="button" aria-pressed="false" data-check>
+          <span class="ctask__box" aria-hidden="true"></span>
+          <span class="ctask__num mono">02</span>
+          <span class="ctask__title">Внесение компонентов.</span>
+        </button>
+        <p class="ctask__body">Растворите кальций и фермент (каждый отдельно) в 50 мл воды комнатной температуры. Поочерёдно влейте в молоко. Оставьте на 30 минут до образования плотного сгустка. Проверьте готовность ножом: сделайте надрез треугольником, если сыворотка отходит хорошо, то пора резать.</p>
+      </li>
+      <li class="ctask">
+        <button class="ctask__btn" type="button" aria-pressed="false" data-check>
+          <span class="ctask__box" aria-hidden="true"></span>
+          <span class="ctask__num mono">03</span>
+          <span class="ctask__title">Нарезка и вымешивание.</span>
+        </button>
+        <p class="ctask__body">Нарежьте сгусток вертикально с шагом 1,5 см, подождите две минуты, затем нарежьте горизонтально. Спустя еще две минуты начните очень медленно вымешивать сырное зерно, параллельно плавно нагревая массу до 37 °C (с ростом температуры скорость вымешивания можно увеличить).</p>
+      </li>
+      <li class="ctask">
+        <button class="ctask__btn" type="button" aria-pressed="false" data-check>
+          <span class="ctask__box" aria-hidden="true"></span>
+          <span class="ctask__num mono">04</span>
+          <span class="ctask__title">Проверка зерна.</span>
+        </button>
+        <p class="ctask__body">Наберите зерно в шумовку, дайте стечь сыворотке и подбросьте его над кастрюлей. Если зерно рассыпается и не слипается в ком — оно готово.</p>
+      </li>
+      <li class="ctask">
+        <button class="ctask__btn" type="button" aria-pressed="false" data-check>
+          <span class="ctask__box" aria-hidden="true"></span>
+          <span class="ctask__num mono">05</span>
+          <span class="ctask__title">Формовка и прессование.</span>
+        </button>
+        <p class="ctask__body">Шумовкой переложите массу в форму. Оставьте на 10 минут, затем переверните. Повторите перевороты через 15 и 20 минут. После этого оставьте сыр в форме при комнатной температуре на три часа для окончательного оттока сыворотки.</p>
+      </li>
+      <li class="ctask">
+        <button class="ctask__btn" type="button" aria-pressed="false" data-check>
+          <span class="ctask__box" aria-hidden="true"></span>
+          <span class="ctask__num mono">06</span>
+          <span class="ctask__title">Посол и созревание.</span>
+        </button>
+        <p class="ctask__body">Приготовьте рассол (200 г соли на 1 л кипяченой воды) и опустите туда сыр на один час (в середине процесса один раз переверните). Выньте сыр, обсушите, положите в контейнер на бумажное полотенце и отправьте в холодильник. В течение трех дней ежедневно переворачивайте сыр и меняйте полотенце на сухое. Готово!</p>
+      </li>
+    </ol>
+  </div>
+</section>
+<!-- 06 Галерея -->
+<section class="sec sec--galereya" id="galereya" data-theme="ink" data-scene="galereya" data-bg="24">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.04">
+      <source type="image/webp" srcset="assets/img/opt/kyz-24-sm.webp 900w, assets/img/opt/kyz-24-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-24-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <header class="sechead">
+    <p class="sechead__num mono" data-reveal="fade">06 / Галерея</p>
+    <h2 class="sechead__title" data-split="words">50 кадров с фермы</h2>
+    <p class="sechead__note mono" data-reveal="fade">Кристина Фанченко снимала всё: от амбара и коз до дегустации</p>
+  </header>
+
+  <div class="wrap filters" data-filters role="group" aria-label="Фильтр галереи по темам">
+    <button class="fbtn is-active mono" type="button" data-filter="all" aria-pressed="true">Все 50 фото</button>
+    <button class="fbtn mono" type="button" data-filter="goats" aria-pressed="false">Козы</button>
+    <button class="fbtn mono" type="button" data-filter="people" aria-pressed="false">Люди</button>
+    <button class="fbtn mono" type="button" data-filter="cheese" aria-pressed="false">Сыр</button>
+    <button class="fbtn mono" type="button" data-filter="process" aria-pressed="false">Процесс</button>
+    <button class="fbtn mono" type="button" data-filter="yard" aria-pressed="false">Двор</button>
+    <p class="filters__count mono"><span data-filter-count>50</span> кадров</p>
+  </div>
+
+  <div class="grid" data-gallery aria-live="polite">
+    <noscript>
+      <p class="grid__noscript mono">Дальше — все 50 кадров репортажа. Включите JavaScript, чтобы работали фильтры, лайтбокс и Masonry-раскладка.</p>
+      <img src="assets/img/opt/kyz-34-sm.webp" alt="Альпийская коза смотрит в кадр" width="900" height="600" loading="lazy" decoding="async">
+      <img src="assets/img/opt/kyz-38-sm.webp" alt="Разрезанные головки сыра" width="900" height="600" loading="lazy" decoding="async">
+      <img src="assets/img/opt/kyz-29-sm.webp" alt="Ирина Лужкова обнимает козу" width="900" height="600" loading="lazy" decoding="async">
+      <img src="assets/img/opt/kyz-06-sm.webp" alt="Сено и вилы в амбаре" width="900" height="600" loading="lazy" decoding="async">
+      <img src="assets/img/opt/kyz-16-sm.webp" alt="Десерт «Анютка»" width="900" height="600" loading="lazy" decoding="async">
+      <img src="assets/img/opt/kyz-45-sm.webp" alt="Куры во дворе фермы" width="900" height="600" loading="lazy" decoding="async">
+    </noscript>
+  </div>
+
+  <div class="ticker ticker--brand" data-marquee data-speed="46" data-marquee-source="ticker" aria-hidden="true"></div>
+</section>
+
+<!-- Подвал -->
+<footer class="foot" data-theme="ink" data-bg="13">
+  <div class="sec__bg" aria-hidden="true">
+    <picture data-parallax="0.04">
+      <source type="image/webp" srcset="assets/img/opt/kyz-13-sm.webp 900w, assets/img/opt/kyz-13-md.webp 1700w" sizes="100vw">
+      <img src="assets/img/opt/kyz-13-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <div class="wrap foot__grid">
+    <div class="foot__cta">
+      <p class="mono">Витебский район · деревня Буево · 20 км от Витебска</p>
+      <h2 class="foot__title">Будете проезжать мимо — загляните к Ирине</h2>
+      <p class="foot__text">Она и главный сыровар, и заботливая «мама» для целого зоопарка. А десерт «Анютка» стоит того, чтобы сделать крюк.</p>
+      <div class="foot__actions">
+        <a class="btn btn--solid" href="https://sb.by" target="_blank" rel="noopener" data-magnetic>Больше репортажей «СГ»</a>
+        <a class="btn btn--outline" href="#galereya" data-magnetic>Смотреть галерею</a>
+      </div>
+    </div>
+
+    <div class="foot__credits">
+      <p class="mono">Репортаж</p>
+      <p>Егор <b>ДУЛЕВИЧ</b>, «СГ»<br><a href="mailto:dulevich@sb.by">dulevich@sb.by</a></p>
+      <p class="mono">Фото</p>
+      <p>Кристина <b>Фанченко</b>, «СГ»</p>
+      <p class="mono">29 октября · один день · 50 кадров</p>
+    </div>
+  </div>
+
+  <div class="wrap foot__bottom">
+    <span class="quadset quadset--foot" aria-hidden="true" data-quadset>
+      <img src="assets/img/logo.png" alt="" class="quad quad--tl" loading="lazy">
+      <img src="assets/img/logo.png" alt="" class="quad quad--tr" loading="lazy">
+      <img src="assets/img/logo.png" alt="" class="quad quad--bl" loading="lazy">
+      <img src="assets/img/logo.png" alt="" class="quad quad--br" loading="lazy">
+    </span>
+    <p class="mono">«Наш буевский ответ Альпам» · журналисты «СГ» стали сыроварами</p>
+    <a class="foot__up mono" href="#top" data-magnetic>Наверх ↑</a>
+  </div>
+</footer>
+
+</main>
+
+<!-- Лайтбокс -->
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии" data-lightbox>
+  <div class="lb__bar">
+    <p class="lb__counter mono"><span data-lb-index>01</span> <span class="lb__slash">/</span> <span data-lb-total>50</span></p>
+    <p class="lb__tags mono" data-lb-tags></p>
+    <button class="lb__close mono" type="button" data-lb-close>Закрыть · ESC</button>
+  </div>
+
+  <figure class="lb__stage">
+    <img class="lb__img" data-lb-img src="assets/img/opt/kyz-34-md.webp" alt="">
+    <figcaption class="lb__cap" data-lb-cap></figcaption>
+  </figure>
+
+  <button class="lb__nav lb__nav--prev" type="button" data-lb-prev aria-label="Предыдущее фото">←</button>
+  <button class="lb__nav lb__nav--next" type="button" data-lb-next aria-label="Следующее фото">→</button>
+  <div class="lb__progress" aria-hidden="true"><i data-lb-progress></i></div>
+  <p class="lb__hint mono">Свайп · ← → · ESC · клик по фото — зум</p>
+</div>
+
+<script src="js/photos.js"></script>
+<script src="js/galleries.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
+
