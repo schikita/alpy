@@ -160,6 +160,9 @@
         });
       }
     });
+    $$("[data-reveal='clip'] img[src]").forEach(function (img) {
+      img.loading = "eager";
+    });
     if (reduced || !("IntersectionObserver" in window)) {
       targets.forEach(function (el) {
         el.classList.add("is-in");
@@ -648,7 +651,7 @@
           show();
           io.unobserve(e.target);
         });
-      }, { threshold: 0.45 });
+      }, { threshold: 0.2 });
       io.observe(box);
     });
   }
