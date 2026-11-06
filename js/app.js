@@ -137,6 +137,18 @@
     el.appendChild(frag);
   }
 
+  /* Кадр с clip-path до появления не пересекает вьюпорт, и loading=lazy
+     больше не стартует сам. После is-in заново просим браузер его загрузить. */
+  function wakeImages(el) {
+    window.requestAnimationFrame(function () {
+      el.querySelectorAll("img[src]").forEach(function (img) {
+        if (img.naturalWidth) return;
+        img.loading = "eager";
+        img.src = img.getAttribute("src");
+      });
+    });
+  }
+
   /* ── Появление при скролле ───────────────────────────────────────────── */
   function initReveals() {
     var targets = $$("[data-reveal], [data-split]");
@@ -149,13 +161,17 @@
       }
     });
     if (reduced || !("IntersectionObserver" in window)) {
-      targets.forEach(function (el) { el.classList.add("is-in"); });
+      targets.forEach(function (el) {
+        el.classList.add("is-in");
+        wakeImages(el);
+      });
       return;
     }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("is-in");
+        wakeImages(entry.target);
         io.unobserve(entry.target);
       });
     }, { rootMargin: "0px 0px -12% 0px", threshold: 0.12 });
