@@ -336,7 +336,7 @@
     var p = G.byId(id);
     if (!p) return "";
     return '<figure class="slide" data-photo="' + p.id + '">' + photoFigure(p, sizes) +
-      '<figcaption><b class="mono">' + p.id + "</b>" + esc(G.caption(p.id)) + "</figcaption></figure>";
+      "<figcaption>" + esc(G.caption(p.id)) + "</figcaption></figure>";
   }
 
   function addOpenButton(item) {

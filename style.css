@@ -844,7 +844,7 @@ body.is-menu .wheelbtn__bars i:nth-child(3) { transform: translateY(-0.29rem) ro
 
 /* ── Зоопарк и арсенал ──────────────────────────────────────────────────── */
 .zoo { display: grid; border-top: 1px solid var(--ui-line); }
-.zoo li { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); gap: 0.7rem; align-items: baseline; padding: 0.65rem 0; border-bottom: 1px solid var(--ui-line); }
+.zoo li { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.7rem; align-items: baseline; padding: 0.65rem 0; border-bottom: 1px solid var(--ui-line); }
 .zoo b { font-family: var(--mono); font-size: 0.85rem; color: var(--accent-text); }
 .zoo span { font-size: 0.95rem; }
 
@@ -882,14 +882,7 @@ body.is-menu .wheelbtn__bars i:nth-child(3) { transform: translateY(-0.29rem) ro
 .pinned__img { position: absolute; inset: 0; opacity: 0; transform: scale(1.06); transition: opacity 0.9s var(--e-io), transform 1.6s var(--e-out); }
 .pinned__img.is-active { opacity: 1; transform: none; }
 .pinned__img img { width: 100%; height: 100%; object-fit: cover; }
-.pinned__badge {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  background: var(--red);
-  color: var(--ink);
-}
+.pinned__badge { display: none; }
 .pinned__steps { display: grid; gap: clamp(9vh, 20vh, 22vh); padding-block: 3vh 5vh; }
 .pstep { display: grid; gap: 0.85rem; max-width: 44ch; opacity: 0.55; transition: opacity 0.9s linear; }
 .pstep.is-active { opacity: 1; }
@@ -938,7 +931,7 @@ body.is-menu .wheelbtn__bars i:nth-child(3) { transform: translateY(-0.29rem) ro
 .carousel { padding-block: clamp(0.8rem, 2.5vh, 1.6rem); }
 .carousel__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1rem; padding-bottom: 0.9rem; }
 .carousel__title { font-family: var(--display); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 2.05rem); letter-spacing: -0.035em; }
-.carousel__meta { color: var(--muted); }
+.carousel__meta { display: none; }
 .carousel__track {
   display: flex;
   gap: clamp(0.6rem, 1.5vw, 1.1rem);
