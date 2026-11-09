@@ -255,7 +255,7 @@ ok("все три скрипта подключены", ["js/photos.js", "js/gal
 
 group("Фото-фоны разделов");
 const bgIds = [...new Set((html.match(/data-bg="(\d\d)"/g) || []).map((s) => s.slice(9, 11)))];
-ok("фото-фон есть у каждой секции (≥ 12)", bgIds.length >= 12, "найдено " + bgIds.length);
+ok("фото-фон есть у каждой секции (≥ 11)", bgIds.length >= 11, "найдено " + bgIds.length);
 ok("фон-блок есть в каждой секции с data-bg",
   (html.match(/class="sec__bg"/g) || []).length === bgIds.length,
   (html.match(/class="sec__bg"/g) || []).length + " блоков на " + bgIds.length + " секций");

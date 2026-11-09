@@ -813,91 +813,6 @@
     });
   }
 
-  /* ── Галерея: masonry, blur-up, фильтры ─────────────────────────────── */
-  var GRID_ROW = 8;
-  var GRID_GAP = 8;
-
-  function initGallery() {
-    var grid = $("[data-gallery]");
-    if (!grid) return;
-    var photos = G.all();
-    var frag = document.createDocumentFragment();
-
-    photos.forEach(function (p) {
-      var tile = document.createElement("button");
-      tile.type = "button";
-      tile.className = "tile";
-      tile.dataset.photo = p.id;
-      tile.dataset.tags = (G.tags[p.id] || []).join(" ");
-      tile.setAttribute("data-lightbox-open", "");
-      tile.setAttribute("aria-label", "Открыть кадр: " + G.caption(p.id) + ". " + G.tagLabels(p.id).join(", "));
-      tile.style.backgroundImage = 'url("' + p.blur + '")'; /* размытая основа, пока грузится кадр */
-
-      var tags = G.tagLabels(p.id).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("");
-      tile.innerHTML =
-        '<img src="' + p.src.sm + '" srcset="' + p.src.sm + " 900w, " + p.src.md + ' 1700w" ' +
-        'sizes="(max-width: 640px) 46vw, (max-width: 1100px) 31vw, 22vw" alt="' + esc(G.caption(p.id)) +
-        '" width="' + p.w + '" height="' + p.h + '" loading="lazy" decoding="async">' +
-        '<span class="tile__tags">' + tags + "</span>" +
-        '<span class="tile__cap">' + esc(G.caption(p.id)) + "</span>";
-
-      var img = $("img", tile);
-      if (img) {
-        if (img.complete && img.naturalWidth) tile.classList.add("is-loaded");
-        else on(img, "load", function () { tile.classList.add("is-loaded"); });
-      }
-      frag.appendChild(tile);
-    });
-    grid.appendChild(frag);
-
-    var lastCol = 0;
-    var recalc = function () {
-      var first = $(".tile", grid);
-      if (!first) return;
-      var col = first.getBoundingClientRect().width;
-      if (!col) return;
-      lastCol = col;
-      $$(".tile", grid).forEach(function (tile) {
-        var p = G.byId(tile.dataset.photo);
-        if (p) tile.style.setProperty("--span", String(G.span(p.ratio, col, GRID_ROW, GRID_GAP)));
-      });
-    };
-
-    recalc();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(recalc);
-    on(window, "resize", function () {
-      var first = $(".tile", grid);
-      if (!first) return;
-      if (Math.abs(first.getBoundingClientRect().width - lastCol) > 1) recalc();
-    });
-
-    /* Фильтры */
-    var wrap = $("[data-filters]");
-    if (!wrap) return;
-    var buttons = $$("[data-filter]", wrap);
-    var count = $("[data-filter-count]", wrap);
-    buttons.forEach(function (btn) {
-      on(btn, "click", function () {
-        var tag = btn.dataset.filter;
-        buttons.forEach(function (b) {
-          var active = b === btn;
-          b.classList.toggle("is-active", active);
-          b.setAttribute("aria-pressed", active ? "true" : "false");
-        });
-        var shown = 0;
-        $$(".tile", grid).forEach(function (tile) {
-          var match = tag === "all" || (tile.dataset.tags || "").split(" ").indexOf(tag) !== -1;
-          tile.classList.toggle("is-hidden", !match);
-          if (match) shown++;
-        });
-        if (count) count.textContent = String(shown);
-        grid.classList.add("is-filtering");
-        window.setTimeout(function () { grid.classList.remove("is-filtering"); }, 700);
-        recalc();
-      });
-    });
-  }
-
   /* ── Лайтбокс ───────────────────────────────────────────────────────── */
   function initLightbox() {
     var root = $("[data-lightbox]");
@@ -1070,6 +985,92 @@
     });
   }
 
+  /* ── Ролики: постер сразу, файл по нажатию ──────────────────────────── */
+  function initReels() {
+    var root = $("[data-reels]");
+    if (!root) return;
+    var reels = $$("[data-reel]", root);
+
+    var fmt = function (t) {
+      if (!isFinite(t) || t < 0) t = 0;
+      var s = Math.floor(t);
+      return Math.floor(s / 60) + ":" + (s % 60 < 10 ? "0" : "") + (s % 60);
+    };
+
+    reels.forEach(function (reel) {
+      var video = $("video", reel);
+      var play = $(".reel__play", reel);
+      var seek = $(".reel__seek", reel);
+      var sound = $(".reel__sound", reel);
+      var time = $(".reel__time", reel);
+      if (!video || !play) return;
+      var dragging = false;
+
+      var paint = function () {
+        var dur = video.duration;
+        if (time) time.textContent = fmt(video.currentTime) + (dur ? " / " + fmt(dur) : "");
+        if (!dragging && seek && dur) seek.value = String(Math.round(video.currentTime / dur * 1000));
+      };
+
+      var pauseOthers = function () {
+        reels.forEach(function (other) {
+          if (other === reel) return;
+          var v = $("video", other);
+          if (v && !v.paused) v.pause();
+        });
+      };
+
+      var playClip = function () {
+        pauseOthers();
+        reel.classList.add("is-busy");
+        var pending = video.play();
+        if (pending && pending.catch) pending.catch(function () { reel.classList.remove("is-busy"); });
+      };
+
+      var toggle = function () {
+        if (video.paused || video.ended) playClip();
+        else video.pause();
+      };
+
+      on(play, "click", function (e) { e.stopPropagation(); toggle(); });
+      on(video, "click", toggle);
+      on(video, "playing", function () {
+        reel.classList.remove("is-busy");
+        reel.classList.add("is-on", "is-started");
+      });
+      on(video, "waiting", function () { if (!video.paused) reel.classList.add("is-busy"); });
+      on(video, "pause", function () { reel.classList.remove("is-on", "is-busy"); });
+      on(video, "ended", function () {
+        reel.classList.remove("is-on", "is-busy");
+        video.currentTime = 0;
+        paint();
+      });
+      on(video, "timeupdate", paint);
+      on(video, "loadedmetadata", paint);
+
+      if (seek) {
+        on(seek, "pointerdown", function () { dragging = true; });
+        on(seek, "input", function () {
+          if (!video.duration) return;
+          video.currentTime = (Number(seek.value) / 1000) * video.duration;
+          paint();
+        });
+        on(seek, "change", function () { dragging = false; });
+        on(seek, "pointerup", function () { dragging = false; });
+      }
+
+      if (sound) {
+        on(sound, "click", function () {
+          video.muted = !video.muted;
+          reel.classList.toggle("is-muted", video.muted);
+          sound.setAttribute("aria-pressed", video.muted ? "true" : "false");
+          sound.setAttribute("aria-label", video.muted ? "Включить звук" : "Выключить звук");
+          sound.textContent = video.muted ? "тихо" : "звук";
+        });
+      }
+    });
+  }
+
   /* ── Запуск ─────────────────────────────────────────────────────────── */
   function boot() {
     initReveals();
@@ -1084,7 +1085,7 @@
     initPinned();
     initScrollUI();
     initMenu();
-    initGallery();
+    initReels();
     initLightbox();
     initParallax();
     initTilt();

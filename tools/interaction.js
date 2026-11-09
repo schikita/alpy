@@ -129,8 +129,8 @@ window.addEventListener("load", function () {
     t("слайдер «до/после» пишет --ba", function () {
       return q("[data-ba]").style.getPropertyValue("--ba") === "20%";
     });
-    t("меню и рельс ведут на все шесть секций", function () {
-      return ["shengen", "vily", "shpargalka", "degustacia", "recept", "galereya"].every(function (id) {
+    t("меню и рельс ведут на все пять секций", function () {
+      return ["shengen", "vily", "shpargalka", "degustacia", "recept"].every(function (id) {
         return !!document.getElementById(id) &&
           !!q('.menu__list a[href="#' + id + '"]') &&
           !!q('.rail__list a[href="#' + id + '"]');
@@ -138,7 +138,7 @@ window.addEventListener("load", function () {
     });
 
     /* ── Скролл-состояния ── */
-    var galleryTop = document.getElementById("galereya").offsetTop;
+    var galleryTop = document.querySelector("footer.foot").offsetTop;
     var scrollEvents = 0;
     window.addEventListener("scroll", function () { scrollEvents++; }, { passive: true });
     var frames = 0;
@@ -152,7 +152,7 @@ window.addEventListener("load", function () {
       var envScroll = scrollEvents > 0;
       log.push("  ·  среда: visibility=" + document.visibilityState + ", кадров rAF=" + frames +
         ", scroll-событий=" + scrollEvents);
-      t("скролл к галерее выполнен", function () { return Math.abs(window.scrollY - (galleryTop + 10)) < 40; },
+      t("скролл к подвалу выполнен", function () { return Math.abs(window.scrollY - (galleryTop + 10)) < 40; },
         function () { return "scrollY=" + window.scrollY + " target=" + (galleryTop + 10); });
       t("карусель остаётся горизонтальной", function () {
         var tr = q("[data-carousel-track]");
@@ -178,9 +178,9 @@ window.addEventListener("load", function () {
           var v = parseFloat(q("[data-rail-temp]").textContent);
           return v > 13 && v <= 14;
         }, function () { return "temp=" + q("[data-rail-temp]").textContent; });
-        t("активен именно раздел галереи", function () {
+        t("активен последний раздел", function () {
           var active = qa(".rail__list a.is-active")[0];
-          return !!active && active.getAttribute("href") === "#galereya";
+          return !!active && active.getAttribute("href") === "#recept";
         }, function () { var a = qa(".rail__list a.is-active")[0]; return "href=" + (a ? a.getAttribute("href") : "нет"); });
       } else {
         log.push("skip скролл-эффекты отложены: среда не обслуживает кадры (скрытый headless-документ)");

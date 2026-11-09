@@ -69,7 +69,6 @@
   </nav>
 
   <div class="topbar__right">
-    <a class="btn btn--ghost topbar__gal" href="#galereya">Галерея · 50 фото</a>
     <button class="wheelbtn" type="button" id="menuBtn" data-menu-open aria-expanded="false" aria-controls="menu">
       <svg class="wheelbtn__ring" viewBox="0 0 44 44" aria-hidden="true">
         <circle class="wheelbtn__track" cx="22" cy="22" r="19" pathLength="100"></circle>
@@ -93,11 +92,9 @@
           <a class="wedge" href="#degustacia" data-wheel-item="degustacia" tabindex="-1"><path d="M46.69 192.51A104 104 0 0 1 10.28 80.46L60.14 95.23A52 52 0 0 0 78.34 151.25Z"></path></a>
           <a class="wedge" href="#recept" data-wheel-item="recept" tabindex="-1"><path d="M11.97 75.28A104 104 0 0 1 107.28 6.04L108.64 58.02A52 52 0 0 0 60.98 92.64Z"></path></a>
         </g>
-        <a class="wheel__hub" href="#galereya" data-wheel-item="galereya" tabindex="-1">
+        <g class="wheel__hub">
           <circle cx="110" cy="110" r="46"></circle>
-          <text x="110" y="106">галерея</text>
-          <text x="110" y="122">50 фото</text>
-        </a>
+        </g>
       </svg>
       <img class="menu__logo" src="assets/img/logo.png" alt="" width="1440" height="1440" loading="lazy" decoding="async">
       <p class="menu__hint mono">Наведите на сектор — увидите кадр</p>
@@ -111,7 +108,6 @@
         <li><a href="#shpargalka" data-menu-link data-photo="18"><span class="menu__title">Сырная шпаргалка</span><span class="menu__hint2">Пять шагов до головки сыра</span></a></li>
         <li><a href="#degustacia" data-menu-link data-photo="16"><span class="menu__title">Дегустация</span><span class="menu__hint2">«Шевр», полутвердый и «Анютка»</span></a></li>
         <li><a href="#recept" data-menu-link data-photo="35"><span class="menu__title">Рецепт от шефа</span><span class="menu__hint2">Рассольный молодой — 6 шагов</span></a></li>
-        <li><a href="#galereya" data-menu-link data-photo="38"><span class="menu__title">Галерея</span><span class="menu__hint2">Все 50 кадров с фермы</span></a></li>
       </ol>
       <div class="menu__foot">
         <p class="mono">Фото Кристина Фанченко · «СБ»</p>
@@ -132,7 +128,6 @@
     <li><a href="#shpargalka" data-nav-link><i></i><span class="mono">Шпаргалка</span></a></li>
     <li><a href="#degustacia" data-nav-link><i></i><span class="mono">Дегустация</span></a></li>
     <li><a href="#recept" data-nav-link><i></i><span class="mono">Рецепт</span></a></li>
-    <li><a href="#galereya" data-nav-link><i></i><span class="mono">Галерея</span></a></li>
   </ol>
   <p class="rail__temp mono" aria-hidden="true"><span data-rail-temp>10.0</span> °C</p>
 </aside>
@@ -155,7 +150,6 @@
         <source type="image/webp" srcset="assets/img/opt/kyz-34-sm.webp 900w, assets/img/opt/kyz-34-md.webp 1700w" sizes="(max-width: 900px) 92vw, 46vw">
         <img src="assets/img/opt/kyz-34-sm.webp" alt="Альпийская коза смотрит прямо в кадр на ферме в Буево" width="1700" height="1133" fetchpriority="high" decoding="async">
       </picture>
-      <figcaption class="mono">Коза №4. Смотрит в душу</figcaption>
     </figure>
     <figure class="hero__shot hero__shot--left" data-parallax="0.13" data-tilt>
       <picture>
@@ -240,8 +234,8 @@
           </picture>
         </figure>
       </div>
-      <p class="authcard__who"><b>Егор ДУЛЕВИЧ</b>, журналист «СБ»<br><span class="mono">dulevich@sb.by</span></p>
-      <p class="authcard__who">Фото <b>Кристина Фанченко</b><br><span class="mono">один день · 50 кадров</span></p>
+      <p class="authcard__who"><b>Егор ДУЛЕВИЧ</b>, журналист «СБ»</p>
+      <p class="authcard__who"><b>Кристина ФАНЧЕНКО</b>, фото «СБ»</p>
     </aside>
   </div>
 
@@ -269,13 +263,6 @@
       <p data-reveal="up">Ирина — коренная витебчанка. До 48 лет она жила в городе и успешно работала на фабрике «Милавица». А потом решила круто изменить жизнь:</p>
     </div>
     <div class="col">
-      <ul class="zoo" data-reveal="stagger">
-        <li><span>роскошный альпийский козёл</span></li>
-        <li><span>породистых козочек</span></li>
-        <li><span>немецкая овчарка</span></li>
-        <li><span>крошечная кошка</span></li>
-        <li><span>десант горделивых уток с курами</span></li>
-      </ul>
       <figure class="ph ph--portrait" data-reveal="clip" data-tilt>
         <picture>
           <source type="image/webp" srcset="assets/img/opt/kyz-12-sm.webp 900w, assets/img/opt/kyz-12-md.webp 1700w" sizes="(max-width: 900px) 92vw, 30vw">
@@ -301,8 +288,8 @@
     </picture>
   </div>
   <header class="sechead">
-    <p class="sechead__num mono" data-reveal="fade">Шенген не нужен · продолжение</p>
-    <h2 class="sechead__title" data-split="words">Дотошный подход</h2>
+    <p class="sechead__num mono" data-reveal="fade">Шенген не нужен</p>
+    <h2 class="sechead__title" data-split="words">Погружение с головой</h2>
   </header>
 
   <div class="wrap cols">
@@ -332,7 +319,7 @@
     </picture>
   </div>
   <header class="sechead">
-    <p class="sechead__num mono" data-reveal="fade">Шенген не нужен · продолжение</p>
+    <p class="sechead__num mono" data-reveal="fade">Шенген не нужен</p>
     <h2 class="sechead__title" data-split="words">Три года практики</h2>
   </header>
 
@@ -469,7 +456,7 @@
     </picture>
   </div>
   <header class="sechead">
-    <p class="sechead__num mono" data-reveal="fade">От вил — к марле · продолжение</p>
+    <p class="sechead__num mono" data-reveal="fade">От вил — к марле</p>
     <h2 class="sechead__title" data-split="words">Марля и сыворотка</h2>
   </header>
 
@@ -880,43 +867,118 @@
     </ol>
   </div>
 </section>
-<!-- 06 Галерея -->
-<section class="sec sec--galereya" id="galereya" data-theme="ink" data-scene="galereya" data-bg="24">
-  <div class="sec__bg" aria-hidden="true">
-    <picture data-parallax="0.04">
-      <source type="image/webp" srcset="assets/img/opt/kyz-24-sm.webp 900w, assets/img/opt/kyz-24-md.webp 1700w" sizes="100vw">
-      <img src="assets/img/opt/kyz-24-sm.webp" alt="" width="900" height="600" loading="lazy" decoding="async">
-    </picture>
-  </div>
+
+<!-- Ролики со съёмки -->
+<section class="sec sec--reels" id="roliki" data-theme="ink" data-scene="roliki" data-parent="recept">
   <header class="sechead">
-    <p class="sechead__num mono" data-reveal="fade">Галерея</p>
-    <h2 class="sechead__title" data-split="words">50 кадров с фермы</h2>
-    <p class="sechead__note mono" data-reveal="fade">Кристина Фанченко снимала всё: от амбара и коз до дегустации</p>
+    <p class="sechead__num mono" data-reveal="fade">Съёмка</p>
+    <h2 class="sechead__title" data-split="words">Один день в движении</h2>
+    <p class="sechead__note mono" data-reveal="fade">Шесть коротких роликов с фермы. Картинка открывается сразу, файл — по нажатию</p>
   </header>
-
-  <div class="wrap filters" data-filters role="group" aria-label="Фильтр галереи по темам">
-    <button class="fbtn is-active mono" type="button" data-filter="all" aria-pressed="true">Все 50 фото</button>
-    <button class="fbtn mono" type="button" data-filter="goats" aria-pressed="false">Козы</button>
-    <button class="fbtn mono" type="button" data-filter="people" aria-pressed="false">Люди</button>
-    <button class="fbtn mono" type="button" data-filter="cheese" aria-pressed="false">Сыр</button>
-    <button class="fbtn mono" type="button" data-filter="process" aria-pressed="false">Процесс</button>
-    <button class="fbtn mono" type="button" data-filter="yard" aria-pressed="false">Двор</button>
-    <p class="filters__count mono"><span data-filter-count>50</span> кадров</p>
+  <div class="reels" data-reels>
+    <figure class="reel" data-reel>
+      <div class="reel__frame">
+        <video class="reel__video" poster="assets/video/koza.jpg" preload="none" playsinline width="640" height="1138">
+          <source src="assets/video/koza.mp4" type="video/mp4">
+        </video>
+        <button class="reel__play" type="button" aria-label="Смотреть: коза смотрит в камеру">
+          <span class="reel__icon" aria-hidden="true"></span>
+          <span class="reel__spin" aria-hidden="true"></span>
+        </button>
+        <div class="reel__hud">
+          <input class="reel__seek" type="range" min="0" max="1000" value="0" aria-label="Прогресс: коза смотрит в камеру">
+          <span class="reel__time mono">0:00</span>
+          <button class="reel__sound mono" type="button" aria-pressed="false" aria-label="Выключить звук">звук</button>
+        </div>
+      </div>
+      <figcaption class="mono">Коза смотрит в камеру</figcaption>
+    </figure>
+    <figure class="reel" data-reel>
+      <div class="reel__frame">
+        <video class="reel__video" poster="assets/video/seno.jpg" preload="none" playsinline width="640" height="1138">
+          <source src="assets/video/seno.mp4" type="video/mp4">
+        </video>
+        <button class="reel__play" type="button" aria-label="Смотреть: сено для коз">
+          <span class="reel__icon" aria-hidden="true"></span>
+          <span class="reel__spin" aria-hidden="true"></span>
+        </button>
+        <div class="reel__hud">
+          <input class="reel__seek" type="range" min="0" max="1000" value="0" aria-label="Прогресс: сено для коз">
+          <span class="reel__time mono">0:00</span>
+          <button class="reel__sound mono" type="button" aria-pressed="false" aria-label="Выключить звук">звук</button>
+        </div>
+      </div>
+      <figcaption class="mono">Сено — начало молока</figcaption>
+    </figure>
+    <figure class="reel" data-reel>
+      <div class="reel__frame">
+        <video class="reel__video" poster="assets/video/dvor.jpg" preload="none" playsinline width="640" height="1138">
+          <source src="assets/video/dvor.mp4" type="video/mp4">
+        </video>
+        <button class="reel__play" type="button" aria-label="Смотреть: кошка и куры">
+          <span class="reel__icon" aria-hidden="true"></span>
+          <span class="reel__spin" aria-hidden="true"></span>
+        </button>
+        <div class="reel__hud">
+          <input class="reel__seek" type="range" min="0" max="1000" value="0" aria-label="Прогресс: кошка и куры">
+          <span class="reel__time mono">0:00</span>
+          <button class="reel__sound mono" type="button" aria-pressed="false" aria-label="Выключить звук">звук</button>
+        </div>
+      </div>
+      <figcaption class="mono">Кошка и куры во дворе</figcaption>
+    </figure>
+    <figure class="reel" data-reel>
+      <div class="reel__frame">
+        <video class="reel__video" poster="assets/video/ovcharka.jpg" preload="none" playsinline width="640" height="1138">
+          <source src="assets/video/ovcharka.mp4" type="video/mp4">
+        </video>
+        <button class="reel__play" type="button" aria-label="Смотреть: овчарка у сарая">
+          <span class="reel__icon" aria-hidden="true"></span>
+          <span class="reel__spin" aria-hidden="true"></span>
+        </button>
+        <div class="reel__hud">
+          <input class="reel__seek" type="range" min="0" max="1000" value="0" aria-label="Прогресс: овчарка у сарая">
+          <span class="reel__time mono">0:00</span>
+          <button class="reel__sound mono" type="button" aria-pressed="false" aria-label="Выключить звук">звук</button>
+        </div>
+      </div>
+      <figcaption class="mono">Овчарка у сарая</figcaption>
+    </figure>
+    <figure class="reel" data-reel>
+      <div class="reel__frame">
+        <video class="reel__video" poster="assets/video/kleimo.jpg" preload="none" playsinline width="640" height="1138">
+          <source src="assets/video/kleimo.mp4" type="video/mp4">
+        </video>
+        <button class="reel__play" type="button" aria-label="Смотреть: клеймо сыроварни">
+          <span class="reel__icon" aria-hidden="true"></span>
+          <span class="reel__spin" aria-hidden="true"></span>
+        </button>
+        <div class="reel__hud">
+          <input class="reel__seek" type="range" min="0" max="1000" value="0" aria-label="Прогресс: клеймо сыроварни">
+          <span class="reel__time mono">0:00</span>
+          <button class="reel__sound mono" type="button" aria-pressed="false" aria-label="Выключить звук">звук</button>
+        </div>
+      </div>
+      <figcaption class="mono">Клеймо сыроварни</figcaption>
+    </figure>
+    <figure class="reel" data-reel>
+      <div class="reel__frame">
+        <video class="reel__video" poster="assets/video/narezka.jpg" preload="none" playsinline width="640" height="1138">
+          <source src="assets/video/narezka.mp4" type="video/mp4">
+        </video>
+        <button class="reel__play" type="button" aria-label="Смотреть: нарезка к дегустации">
+          <span class="reel__icon" aria-hidden="true"></span>
+          <span class="reel__spin" aria-hidden="true"></span>
+        </button>
+        <div class="reel__hud">
+          <input class="reel__seek" type="range" min="0" max="1000" value="0" aria-label="Прогресс: нарезка к дегустации">
+          <span class="reel__time mono">0:00</span>
+          <button class="reel__sound mono" type="button" aria-pressed="false" aria-label="Выключить звук">звук</button>
+        </div>
+      </div>
+      <figcaption class="mono">Нарезка к дегустации</figcaption>
+    </figure>
   </div>
-
-  <div class="grid" data-gallery aria-live="polite">
-    <noscript>
-      <p class="grid__noscript mono">Дальше — все 50 кадров репортажа. Включите JavaScript, чтобы работали фильтры, лайтбокс и Masonry-раскладка.</p>
-      <img src="assets/img/opt/kyz-34-sm.webp" alt="Альпийская коза смотрит в кадр" width="900" height="600" loading="lazy" decoding="async">
-      <img src="assets/img/opt/kyz-38-sm.webp" alt="Разрезанные головки сыра" width="900" height="600" loading="lazy" decoding="async">
-      <img src="assets/img/opt/kyz-29-sm.webp" alt="Ирина Лужкова обнимает козу" width="900" height="600" loading="lazy" decoding="async">
-      <img src="assets/img/opt/kyz-06-sm.webp" alt="Сено и вилы в амбаре" width="900" height="600" loading="lazy" decoding="async">
-      <img src="assets/img/opt/kyz-16-sm.webp" alt="Десерт «Анютка»" width="900" height="600" loading="lazy" decoding="async">
-      <img src="assets/img/opt/kyz-45-sm.webp" alt="Куры во дворе фермы" width="900" height="600" loading="lazy" decoding="async">
-    </noscript>
-  </div>
-
-  <div class="ticker ticker--brand" data-marquee data-speed="46" data-marquee-source="ticker" aria-hidden="true"></div>
 </section>
 
 <!-- Подвал -->
@@ -952,7 +1014,6 @@
         </ul>
         <div class="foot__actions">
           <a class="btn btn--solid" href="https://www.sb.by/articles/themes/spetsproekt-sb-nash-zhivoy-reportazh/" target="_blank" rel="noopener" data-magnetic>Все живые репортажи «СБ»</a>
-          <a class="btn btn--outline" href="#galereya" data-magnetic>Смотреть галерею</a>
         </div>
       </div>
     </div>
