@@ -314,6 +314,7 @@
       var text = "";
       if (t.closest(".tile, [data-lightbox-open]")) text = "смотреть";
       else if (t.closest("[data-carousel-track], .strip__rail")) text = "тянуть";
+      else if (t.closest("[data-to-top]")) text = "наверх";
       label.textContent = text;
       wrap.classList.toggle("is-label", !!text);
     });
@@ -687,8 +688,20 @@
     var ring = $("[data-ring]");
     var railTemp = $("[data-rail-temp]");
     var topbar = $("[data-topbar]");
+    var toTop = $("[data-to-top]");
+    var hero = $(".hero");
     var links = $$("[data-nav-link]").concat($$("[data-menu-link]"));
     var lastY = window.scrollY;
+    var heroEnd = 0;
+
+    /* кнопка «наверх» выезжает сразу после героя; его высота меняется
+       после загрузки картинок и шрифтов — поэтому перемеряем */
+    var measureHero = function () {
+      heroEnd = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
+    };
+    measureHero();
+    on(window, "resize", measureHero);
+    on(window, "load", measureHero);
 
     var tick = function () {
       var doc = document.documentElement;
@@ -699,6 +712,7 @@
       if (ring) ring.style.setProperty("--scroll", (p * 100).toFixed(1));
       doc.style.setProperty("--rail", (p * 100).toFixed(1));
       if (railTemp) railTemp.textContent = (10 + p * 4).toFixed(1);
+      if (toTop) toTop.classList.toggle("is-visible", y > heroEnd);
 
       if (!topbar) return;
       topbar.classList.toggle("is-scrolled", y > 40);

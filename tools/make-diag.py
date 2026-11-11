@@ -49,6 +49,20 @@ window.addEventListener("load", function () {
     var h1 = document.querySelector(".hero__title");
     out.h1 = h1 ? box(h1) : null;
     out.heroBox = box(document.querySelector(".hero"));
+    var toTop = document.querySelector("[data-to-top]");
+    if (toTop) {
+      var cs = getComputedStyle(toTop);
+      out.toTop = {
+        pos: cs.position, right: cs.right, bottom: cs.bottom,
+        opacity: cs.opacity, visibility: cs.visibility, box: box(toTop)
+      };
+      toTop.classList.add("is-visible");
+      toTop.style.transition = "none"; /* без перехода: проверяем каскад, а не кадр анимации */
+      var cs2 = getComputedStyle(toTop);
+      out.toTopShown = { opacity: cs2.opacity, visibility: cs2.visibility, transform: cs2.transform };
+      toTop.style.transition = "";
+      toTop.classList.remove("is-visible");
+    }
     var pre = document.createElement("pre");
     pre.id = "diag-out";
     pre.textContent = JSON.stringify(out, null, 1);
