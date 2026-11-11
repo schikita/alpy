@@ -178,7 +178,12 @@ b, strong { font-weight: 700; }
 .btn--solid { background: var(--ink); color: var(--paper); }
 .btn--solid::after { background: var(--red); }
 
-.btn--outline { border: 1px solid currentColor; background: var(--milk); color: var(--ink); }
+/* вторичная кнопка залита чёрным сразу, а не читается «белым контуром» */
+.btn--outline {
+  border: 1px solid rgba(246, 240, 229, 0.42);
+  background: var(--ink);
+  color: var(--milk);
+}
 .btn--outline:hover, .btn--outline:focus-visible { color: var(--ink); }
 
 .btn--ghost {
@@ -554,7 +559,8 @@ body.is-menu .wheelbtn__bars i:nth-child(3) { transform: translateY(-0.29rem) ro
   display: grid;
   align-content: space-between;
   min-height: 100svh;
-  padding-top: calc(var(--topbar-h) + 1.5vh);
+  /* заголовок стоит чуть выше середины секции: отступ пропорционален высоте экрана */
+  padding-top: calc(var(--topbar-h) + 16vh);
   overflow: hidden;
   isolation: isolate;
 }
@@ -1360,7 +1366,16 @@ html.no-js .grid__noscript { flex: 1 1 100%; }
 .foot__actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.5rem; }
 .foot__credits { display: grid; align-content: start; gap: 0.35rem; font-size: 0.9rem; }
 .foot__credits .mono { margin-top: 0.7rem; color: var(--muted); }
-.foot__credits a { text-decoration: underline; text-underline-offset: 0.2em; }
+.foot__credits a, .authcard a { text-underline-offset: 0.2em; }
+/* имена авторов — ссылки на их страницы в «СБ» */
+.author-link {
+  text-decoration: underline;
+  text-decoration-color: var(--ui-line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 0.35s linear, text-decoration-color 0.35s linear;
+}
+.author-link:hover, .author-link:focus-visible { color: var(--accent-text); text-decoration-color: currentColor; }
 .foot__bottom { display: flex; flex-wrap: wrap; align-items: center; gap: 0.8rem 1.2rem; margin-top: clamp(1.2rem, 4vh, 2.5rem); padding-top: 1rem; border-top: 1px solid var(--ui-line); }
 .quadset--foot { width: 2rem; animation: spin 26s linear infinite; }
 .foot__bottom p { color: var(--muted); }

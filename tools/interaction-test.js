@@ -35,7 +35,7 @@ try {
 }
 
 const matches = [...dom.matchAll(/<pre id="diag-out">([\s\S]*?)<\/pre>/g)];
-/* первое совпадение — исходник внедрённого скрипта, отчёт всегда последний */
+/* первое совпадение — исходник/комментарий внедрённого скрипта, отчёт всегда последний */
 const m = matches[matches.length - 1];
 if (!m) {
   console.error("✗ сценарий взаимодействий не отработал (нет отчёта)");
@@ -45,10 +45,21 @@ if (!m) {
 const report = m[1]
   .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").replace(/&quot;/g, '"');
 
-console.log("\nИнтерактивность (headless Chrome)");
-report.split("\n").forEach((line) => console.log("  " + line));
+/* Отчёт — это построчный список «ok …» / «FAIL …» / «skip …». Если скрипт упал
+   до его вывода, раннер обязан упасть, а не «пройти» на исходнике скрипта. */
+const reportLines = report.split("\n").map((l) => l.trim()).filter(Boolean);
+const checksInReport = reportLines.filter((l) => /^(ok|FAIL|skip)\b/.test(l)).length;
+if (/<script>|window\.addEventListener/.test(report) || checksInReport < 8) {
+  console.error("✗ отчёт не получен: сценарий упал до вывода результатов");
+  console.error("  строк-проверок в отчёте: " + checksInReport);
+  console.error("  фрагмент: " + report.slice(0, 200).replace(/\s+/g, " "));
+  process.exit(1);
+}
 
-const failed = report.split("\n").filter((l) => l.startsWith("FAIL")).length;
+console.log("\nИнтерактивность (headless Chrome)");
+reportLines.forEach((line) => console.log("  " + line));
+
+const failed = reportLines.filter((l) => l.startsWith("FAIL")).length;
 console.log("\n" + (failed ? "✗ провалено " + failed + " проверок" : "✓ интерактивность в порядке"));
 fs.rmSync(profile, { recursive: true, force: true });
 process.exit(failed ? 1 : 0);

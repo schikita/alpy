@@ -46,6 +46,9 @@ window.addEventListener("load", function () {
     });
     out.scenes = scenes;
     out.viewport = [Math.round(window.scrollY), Math.round(window.innerHeight)];
+    var h1 = document.querySelector(".hero__title");
+    out.h1 = h1 ? box(h1) : null;
+    out.heroBox = box(document.querySelector(".hero"));
     var pre = document.createElement("pre");
     pre.id = "diag-out";
     pre.textContent = JSON.stringify(out, null, 1);

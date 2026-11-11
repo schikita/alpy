@@ -14,6 +14,7 @@ const fs = require("fs");
 
 const ROOT = path.resolve(__dirname, "..");
 const page = "file://" + path.join(ROOT, "index.html").split("/").map(encodeURIComponent).join("/");
+const exists = (p) => fs.existsSync(path.join(ROOT, p));
 const chrome = process.env.CHROME || "google-chrome";
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), "chrome-smoke-"));
 
@@ -58,10 +59,18 @@ const expectedSlides = /* farm */ 16 + /* process */ 17;
 
 console.log("\nРантайм headless Chrome");
 ok("прелоадер снят и страница готова", /class="[^"]*is-ready/.test(dom) && !/id="loader"/.test(dom));
-ok("галерея собрала 50 плиток", count(/class="tile\b/g) === 50, "найдено " + count(/class="tile\b/g));
-ok("у плиток есть blur-подложка", count(/class="tile[^"]*"[^>]*background-image:\s*url\((?:&quot;|")data:image\/webp/g) === 50,
-  "найдено " + count(/class="tile[^"]*"[^>]*background-image:\s*url\((?:&quot;|")data:image\/webp/g));
-ok("плитки получили masonry-спан", count(/--span:\s*\d+/g) >= 50, "найдено " + count(/--span:\s*\d+/g));
+
+const reels = count(/class="reel[ \"]/g);
+ok("роликов шесть и все в DOM", reels === 6, "найдено " + reels);
+ok("у каждого ролика постер и preload=none",
+  count(/class="reel__video"[^>]*poster="[^"]+"[^>]*preload="none"/g) === 6,
+  "найдено " + count(/class="reel__video"[^>]*poster="[^"]+"[^>]*preload="none"/g));
+ok("плеер отдаёт play, перемотку и звук",
+  count(/class="reel__play[ "]/g) === 6 && count(/class="reel__seek[ "]/g) === 6 && count(/class="reel__sound[ "]/g) === 6,
+  "play=" + count(/class="reel__play[ "]/g) + " seek=" + count(/class="reel__seek[ "]/g) + " sound=" + count(/class="reel__sound[ "]/g));
+const reelFiles = [...new Set((dom.match(/assets\/video\/[\w.-]+\.(?:jpg|mp4)/g) || []))];
+ok("все файлы роликов существуют (" + reelFiles.length + ")", reelFiles.every((f) => exists(f)),
+  reelFiles.filter((f) => !exists(f)).join(", "));
 
 const slides = count(/class="slide"/g);
 ok("карусели дополнены до полного состава (" + expectedSlides + ")", slides === expectedSlides, "слайдов " + slides);
@@ -87,7 +96,6 @@ ok("заголовки разбиты на слова", count(/class="wd"/g) > 1
 ok("блоки отмечены как появившиеся", /is-in/.test(dom));
 ok("аккордеон получил aria-связи", /aria-controls="step-body-/.test(dom));
 ok("лайтбокс на месте", /data-lb-img/.test(dom));
-ok("подпись счётчика галереи заполнена", /data-filter-count[^>]*>50</.test(dom));
 ok("кадры героя в разметке и с картинками", /class="hero__shot hero__shot--main"[\s\S]{0,700}<img /.test(dom));
 ok("прелоадер не держит контент (overflow снят)", !/<body[^>]*class="[^"]*is-loading/.test(dom));
 

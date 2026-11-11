@@ -14,58 +14,90 @@ window.addEventListener("load", function () {
     function q(s, r) { return (r || document).querySelector(s); }
     function qa(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
-    /* ── Галерея и фильтры ── */
-    t("галерея: ровно 50 плиток", function () { return qa(".grid .tile").length === 50; });
-    q('[data-filter="cheese"]').click();
-    t("фильтр «Сыр» оставляет 16 кадров", function () { return q("[data-filter-count]").textContent === "16"; });
-    t("скрытых плиток 34", function () { return qa(".grid .tile.is-hidden").length === 34; });
-    t("активной кнопке выставлен aria-pressed", function () {
-      return q('[data-filter="cheese"]').getAttribute("aria-pressed") === "true";
+    /* ── Ролики с фермы ── */
+    var reels = qa("[data-reel]");
+    t("роликов шесть", function () { return reels.length === 6; });
+    t("у каждого ролика постер и preload=none", function () {
+      return reels.length > 0 && reels.every(function (r) {
+        var v = q("video", r);
+        return !!v && !!v.getAttribute("poster") && v.getAttribute("preload") === "none";
+      });
     });
-    q('[data-filter="all"]').click();
-    t("сброс фильтра возвращает 50", function () { return q("[data-filter-count]").textContent === "50"; });
-
-    /* ── Лайтбокс ── */
-    q(".grid .tile").click();
-    t("клик по плитке открывает лайтбокс", function () {
-      return document.getElementById("lightbox").classList.contains("is-open");
+    t("плеер отдаёт управление: play, перемотка, звук", function () {
+      return reels.length > 0 && reels.every(function (r) {
+        return q(".reel__play", r) && q(".reel__seek", r) && q(".reel__sound", r);
+      });
+    }, function () {
+      return reels.map(function (r) {
+        return (q(".reel__play", r) ? "p" : "-") + (q(".reel__seek", r) ? "s" : "-") + (q(".reel__sound", r) ? "z" : "-");
+      }).join(" ");
     });
-    t("счётчик лайтбокса: 01 из 50", function () {
-      return q("[data-lb-index]").textContent === "01" && q("[data-lb-total]").textContent === "50";
+    t("у полосы прогресса есть подпись для скринридера", function () {
+      var seeks = qa(".reel__seek");
+      return seeks.length === 6 && seeks.every(function (s) { return !!s.getAttribute("aria-label"); });
     });
-    t("подпись кадра подставлена", function () { return q("[data-lb-cap]").textContent.length > 4; });
-    t("теги кадра переведены", function () { return q("[data-lb-tags]").textContent.length > 2; });
-    key("ArrowRight");
-    t("→ переключает кадр", function () { return q("[data-lb-index]").textContent === "02"; });
-    key("ArrowLeft");
-    /* в headless-окне без фокуса окна программный focus() не срабатывает —
-       сначала проверяем саму возможность, иначе помечаем как пропуск */
-    var canFocus = (function () {
-      var probe = document.createElement("button");
-      document.body.appendChild(probe);
-      probe.focus();
-      var res = document.activeElement === probe;
-      probe.parentNode.removeChild(probe);
-      return res;
-    })();
-    /* кнопки диалога становятся фокусируемыми после перехода visibility;
-       без кадров переход не продвигается — тогда проверку честно пропускаем */
-    var lbVisible = window.getComputedStyle(q("[data-lb-next]")).visibility === "visible";
-    if (canFocus && lbVisible) {
-      t("фокус удерживается в диалоге (Tab с последнего элемента)", function () {
-        var btn = q("[data-lb-next]");
-        btn.focus();
-        key("Tab");
-        return document.activeElement === q("[data-lb-close]");
-      }, function () { return "active=" + (document.activeElement && document.activeElement.className); });
-    } else {
-      log.push("skip ловушка фокуса не проверена: " + (canFocus ? "переход visibility не продвигается без кадров"
-        : "headless-окно не получает фокус"));
+    if (reels.length) {
+      t("нажатие play запускает ролик (кадр грузится по требованию)", function () {
+        q(".reel__play", reels[0]).click();
+        return reels[0].classList.contains("is-busy") || reels[0].classList.contains("is-on");
+      });
+      t("кнопка звука переключает состояние", function () {
+        var btn = q(".reel__sound", reels[0]);
+        var was = btn.getAttribute("aria-pressed");
+        btn.click();
+        return btn.getAttribute("aria-pressed") !== was;
+      });
     }
-    key("Escape");
-    t("ESC закрывает лайтбокс", function () {
-      return !document.getElementById("lightbox").classList.contains("is-open");
-    });
+
+    /* ── Лайтбокс (открывается кнопкой «Кадр дня» в герое) ── */
+    var lbTrigger = q("[data-lightbox-open]");
+    t("на странице есть триггер лайтбокса", function () { return !!lbTrigger; });
+    if (lbTrigger) {
+      lbTrigger.click();
+      t("клик открывает лайтбокс", function () {
+        return document.getElementById("lightbox").classList.contains("is-open");
+      });
+      t("счётчик и подпись кадра заполнены", function () {
+        return /^\d\d$/.test(q("[data-lb-index]").textContent) &&
+          /^\d\d$/.test(q("[data-lb-total]").textContent) &&
+          q("[data-lb-cap]").textContent.length > 4;
+      });
+      t("теги кадра переведены", function () { return q("[data-lb-tags]").textContent.length > 2; });
+      var firstIndex = q("[data-lb-index]").textContent;
+      key("ArrowRight");
+      t("→ переключает кадр", function () { return q("[data-lb-index]").textContent !== firstIndex; });
+      key("ArrowLeft");
+    }
+    if (lbTrigger) {
+      /* в headless-окне без фокуса окна программный focus() не срабатывает —
+         сначала проверяем саму возможность, иначе помечаем как пропуск */
+      var canFocus = (function () {
+        var probe = document.createElement("button");
+        document.body.appendChild(probe);
+        probe.focus();
+        var res = document.activeElement === probe;
+        probe.parentNode.removeChild(probe);
+        return res;
+      })();
+      /* кнопки диалога становятся фокусируемыми после перехода visibility;
+         без кадров переход не продвигается — тогда проверку честно пропускаем */
+      var nextBtn = q("[data-lb-next]");
+      var lbVisible = nextBtn ? window.getComputedStyle(nextBtn).visibility === "visible" : false;
+      if (canFocus && lbVisible) {
+        t("фокус удерживается в диалоге (Tab с последнего элемента)", function () {
+          nextBtn.focus();
+          key("Tab");
+          return document.activeElement === q("[data-lb-close]");
+        }, function () { return "active=" + (document.activeElement && document.activeElement.className); });
+      } else {
+        log.push("skip ловушка фокуса не проверена: " + (canFocus ? "переход visibility не продвигается без кадров"
+          : "headless-окно не получает фокус"));
+      }
+      key("Escape");
+      t("ESC закрывает лайтбокс", function () {
+        return !document.getElementById("lightbox").classList.contains("is-open");
+      });
+    }
 
     /* ── Круговое меню ── */
     document.getElementById("menuBtn").click();
@@ -135,6 +167,32 @@ window.addEventListener("load", function () {
           !!q('.menu__list a[href="#' + id + '"]') &&
           !!q('.rail__list a[href="#' + id + '"]');
       });
+    });
+
+    /* ── Требования по герою, кнопкам и авторам ── */
+    var h1Ratio = (function () {
+      var r = q(".hero__title").getBoundingClientRect();
+      return (r.top + r.height / 2) / window.innerHeight;
+    })();
+    t("h1 стоит чуть выше середины экрана (40–50%): " + (h1Ratio * 100).toFixed(0) + "%",
+      function () { return h1Ratio >= 0.4 && h1Ratio <= 0.5; });
+
+    var outlineBg = window.getComputedStyle(q(".btn--outline")).backgroundColor;
+    t("вторичная кнопка сразу залита чёрным: " + outlineBg,
+      function () { return /rgb\(22,\s*17,\s*12\)/.test(outlineBg); });
+
+    var authors = qa(".author-link");
+    t("имена авторов — ссылки на sb.by (" + authors.length + ")", function () {
+      return authors.length >= 4 && authors.every(function (a) {
+        return /^https:\/\/www\.sb\.by\/author\//.test(a.href);
+      });
+    });
+    t("авторские ссылки открываются безопасно", function () {
+      return authors.every(function (a) { return a.target === "_blank" && a.rel.indexOf("noopener") > -1; });
+    });
+
+    t("лид репортажа на месте под h1", function () {
+      return /пытались перехитрить породистых коз/.test(q(".hero__deck").textContent);
     });
 
     /* ── Скролл-состояния ── */

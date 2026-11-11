@@ -381,6 +381,23 @@ ok("все " + fragments.length + " фрагментов исходного те
 const strayYo = (PLAIN.match(/ещё|сырьё|полутвёрд|чётк/gi) || []);
 ok("ё приведена к исходнику (нет «ещё/сырьё/полутвёрдый»)", strayYo.length === 0, strayYo.join(", "));
 
+group("Ссылки на авторов и кнопки");
+const AUTHOR_EGOR = "https://www.sb.by/author/2009089-egor-dulevich/";
+const AUTHOR_KRISTINA = "https://www.sb.by/author/1885850-kristina-fanchenko-20241119/";
+ok("ссылка на автора Егора Дулевича", html.includes(AUTHOR_EGOR));
+ok("ссылка на автора Кристины Фанченко", html.includes(AUTHOR_KRISTINA));
+ok("имена авторов кликабельны (подвал + карточка)", (html.match(/class="author-link"/g) || []).length >= 4,
+  "найдено " + (html.match(/class="author-link"/g) || []).length);
+const authorTags = [...html.matchAll(/<a class="author-link"[^>]*>/g)].map((m) => m[0]);
+ok("авторские ссылки открываются в новой вкладке и с noopener",
+  authorTags.length > 0 && authorTags.every((t) => t.includes('target="_blank"') && t.includes('rel="noopener"')),
+  authorTags.filter((t) => !t.includes("noopener")).join(" | "));
+ok("имена завернуты в ссылки, а не наоборот",
+  /<a class="author-link"[^>]*>Егор <b>ДУЛЕВИЧ<\/b><\/a>/.test(html) &&
+  /<a class="author-link"[^>]*>Кристина <b>Фанченко<\/b><\/a>/.test(html));
+ok("вторичная кнопка залита чёрным сразу, не «белым контуром»",
+  /\.btn--outline\s*\{[^}]*background:\s*var\(--ink\)/.test(css) && /\.btn--outline\s*\{[^}]*color:\s*var\(--milk\)/.test(css));
+
 group("Доступность и SEO");
 ok('есть lang="ru"', /<html lang="ru"/.test(html));
 ok("есть ровно один h1", (html.match(/<h1/g) || []).length === 1);
