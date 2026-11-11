@@ -791,7 +791,7 @@ html.js .to-top.is-visible:hover, html.js .to-top.is-visible:focus-visible {
   -webkit-backdrop-filter: blur(10px);
 }
 .authcard__faces { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; }
-.ph--avatar { width: 100%; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; }
+.ph--avatar { width: 100%;  border-radius: var(--radius); overflow: hidden; }
 .ph--avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
 .authcard__who { font-size: 0.82rem; line-height: 1.45; }
 .authcard__who b { font-family: var(--display); font-weight: 600; }
