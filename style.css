@@ -625,7 +625,7 @@ html.js .to-top.is-visible:hover, html.js .to-top.is-visible:focus-visible {
   bottom: 24%;
   width: min(21vw, 17rem);
   aspect-ratio: 3 / 2;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 14% 100%, 0 78%);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 86% 100%, 0 100%);
 }
 .hero__shot--right {
   right: 9%;
@@ -634,8 +634,8 @@ html.js .to-top.is-visible:hover, html.js .to-top.is-visible:focus-visible {
   aspect-ratio: 3 / 2;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 20%);
 }
-/* срезы clip-path съедают углы — подписи уводим от них */
-.hero__shot--left figcaption { left: auto; right: 0; }
+/* срезы clip-path съедают углы — подписи держим на целых углах (левый низ) */
+.hero__shot--left figcaption { left: 0; right: auto; }
 /* вступительный выход кадров анимируется из JS (Web Animations API),
    чтобы transform оставался свободным для параллакса и наклона */
 .hero__shot { transform: translate3d(0, var(--py, 0px), 0) perspective(90rem) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); }
@@ -860,8 +860,7 @@ html.js .to-top.is-visible:hover, html.js .to-top.is-visible:focus-visible {
   max-width: 64rem;
   padding: clamp(1.4rem, 4vw, 3rem);
   border: 0;
-  border-radius: var(--radius-lg);
-  background: var(--red);
+  border-radius: var(--radius-lg); 
   color: var(--ink);
 }
 .quote--red footer { color: rgba(22, 17, 12, 0.93); }
@@ -1729,9 +1728,29 @@ section { overflow: clip; }
 @media (max-width: 56rem) {
   .cols, .cols--flip, .intro__grid, .pinned, .check, .foot__grid, .live__grid { grid-template-columns: minmax(0, 1fr); }
   .cols--flip .col--wide { order: 1; }
-  .pinned__steps { gap: 8vh; padding-block: 2vh 8vh; }
-  .pinned__stage { height: 44vh; top: calc(var(--topbar-h) + 0.5rem); }
-  .check__panel { position: static; order: 1; }
+  /* на телефоне сцена не закрепляется: оба кадра становятся обычными картинками
+     рядом, а шаги идут под ними и не требуют прокрутки с подменой кадров */
+  .pinned__stage {
+    position: relative;
+    top: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .pinned .pinned__img {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 4 / 5;
+    opacity: 1;
+    transform: none;
+  }
+  .pinned .pinned__img img { border-radius: var(--radius); }
+  .pinned__steps { gap: 1.6rem; padding-block: 0; }
+  .pinned .pstep { opacity: 1; max-width: none; }
+  /* панель перестаёт липнуть, но остаётся контейнером для фото и градиента:
+     с position: static абсолютные слои уезжали на всю секцию и закрывали текст */
+  .check__panel { position: relative; top: auto; order: 1; min-height: 0; }
   .check__list { order: 2; }
   .ctask__body { padding-inline-start: 0; }
   .ing li { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }
@@ -1740,7 +1759,7 @@ section { overflow: clip; }
   .hero__stage { position: relative; inset: auto; order: 3; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; padding-inline: var(--gut); }
   .hero__shot { position: static; width: auto; aspect-ratio: 3 / 2; animation: none; }
   .hero__shot--main { grid-column: 1 / -1; aspect-ratio: 4 / 3; clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 100%, 0 100%); }
-  .hero__shot--left { clip-path: polygon(0 0, 100% 0, 100% 100%, 12% 100%, 0 82%); }
+  .hero__shot--left { clip-path: polygon(0 0, 100% 0, 100% 88%, 92% 100%, 0 100%); }
   .hero__shot figcaption { font-size: 0.5rem; padding: 0.3rem 0.45rem; }
   .hero__body { order: 1; }
   .seal { order: 2; position: relative; top: auto; right: auto; margin-inline-start: var(--gut); width: 6rem; }

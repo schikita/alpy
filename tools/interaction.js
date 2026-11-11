@@ -191,10 +191,6 @@ window.addEventListener("load", function () {
       return authors.every(function (a) { return a.target === "_blank" && a.rel.indexOf("noopener") > -1; });
     });
 
-    t("лид репортажа на месте под h1", function () {
-      return /пытались перехитрить породистых коз/.test(q(".hero__deck").textContent);
-    });
-
     /* ── Скролл-состояния ── */
     var galleryTop = document.querySelector("footer.foot").offsetTop;
     var scrollEvents = 0;

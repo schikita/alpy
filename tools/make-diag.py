@@ -63,6 +63,19 @@ window.addEventListener("load", function () {
       toTop.style.transition = "";
       toTop.classList.remove("is-visible");
     }
+    var styleOf = function (el) {
+      if (!el) return null;
+      var c = getComputedStyle(el);
+      return { pos: c.position, opacity: c.opacity, clip: c.clipPath, box: box(el) };
+    };
+    out.pinStage = styleOf(document.querySelector(".pinned__stage"));
+    out.pinImgs = Array.prototype.map.call(document.querySelectorAll(".pinned__img"), styleOf);
+    out.pinStep = styleOf(document.querySelector(".pstep"));
+    out.checkPanel = styleOf(document.querySelector(".check__panel"));
+    out.checkPhoto = styleOf(document.querySelector(".check__photo"));
+    out.checkText = styleOf(document.querySelector(".ctask__body"));
+    out.checkList = styleOf(document.querySelector(".check__list"));
+    out.heroLeft = styleOf(document.querySelector(".hero__shot--left"));
     var pre = document.createElement("pre");
     pre.id = "diag-out";
     pre.textContent = JSON.stringify(out, null, 1);
