@@ -1456,7 +1456,7 @@ html.no-js .grid__noscript { flex: 1 1 100%; }
 .live__byline { display: grid; gap: 0.75rem; margin-top: 0.3rem; }
 .live__byline li { display: grid; grid-template-columns: 4.4rem minmax(0, 1fr); gap: 0.75rem; align-items: center; }
 .live__byline img { width: 4.4rem; height: 5.6rem; object-fit: cover; object-position: center 15%; border-radius: var(--radius); }
-.live__byline b { display: block; font-family: var(--display); font-weight: 600; }
+.live__byline b {  font-family: var(--display); font-weight: 600; }
 .live__byline i { color: var(--muted); }
 
 /* ── Ролики со съёмки ──────────────────────────────────────────────────── */
